@@ -1538,7 +1538,18 @@
                 }
 
                 /* Built our DOM structure - replace the holding div with what we want */
-                nHolding.parentNode.replaceChild(oSettings.nTableWrapper, nHolding);
+                try{
+                    nHolding.parentNode.replaceChild(oSettings.nTableWrapper, nHolding);
+                }
+                catch (e) {
+                    // added win 8 store app support
+                    
+                    MSApp.execUnsafeLocalFunction(function () {
+                        $(nHolding.parentNode).text(oSettings.nTableWrapper);
+                    });
+                }
+               
+                
             }
 
 

@@ -16,8 +16,7 @@ define(["jquery", "backbone", "models/Models"],
         initialize: function() {
 
             //console.log("====> HomeCompositeView - init()");
-
-
+ 
         },
 
         render: function () {
@@ -70,9 +69,9 @@ define(["jquery", "backbone", "models/Models"],
                                 $("#activityFeed").append(toStaticHTML("<br/><div style='float:left'><img src=" + pic + " /></div><div style='float:left'>&nbsp;&nbsp;&nbsp;&nbsp</div><div style='float:left'><b>" + name + "</b>&nbsp;&nbsp;<small>" + date + "</small><br/>" + feed + "</div><hr style='clear:both' />"));
                             });
 
-
-
                         });
+
+                        
                     },
                     error: function (model, response) {
                         $.mobile.loading("hide");

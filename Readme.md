@@ -25,6 +25,11 @@ Things i had to modify
 		name = "<br/>" + r.name;
 		$("#activityFeed").append(toStaticHTML(name));
 	});
+* When in doubt and you get a javascript exception try wrapping your code in this
+	MSApp.execUnsafeLocalFunction(function () {
+		// your code
+	});
+
 
 Todo
 -----

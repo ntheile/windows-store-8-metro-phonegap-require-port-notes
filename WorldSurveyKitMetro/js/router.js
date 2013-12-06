@@ -407,7 +407,6 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
                                 App.startMe();
                             });
 
-
                         },
                         error: function (model, response) {
                             $.mobile.loading("hide");
@@ -487,6 +486,39 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
          
             $.mobile.loading("show");
 
+            // Profile menu code
+            try {
+                MSApp.execUnsafeLocalFunction(function () {
+                    var strOrg = "";
+                    _.each(App.myOrgs, function (org) {
+                        strOrg = strOrg + "<li><a onclick='App.reloadNewOrg(" + org.Orgs.id + ")'>" + org.Orgs.orgName + "</a></li>";
+
+                    });
+                    $("div[data-role='profilemenu']").html("");
+                    $("div[data-role='profilemenu']").append(
+                        '<div data-role="popup" class="profileMenuPopup" data-theme="d">' +
+                            '<ul data-role="listview" data-inset="true" style="min-width:250px;" data-theme="d">' +
+                                '<li data-role="divider" data-theme="g">Switch to Friends Survey:</li>' + strOrg +
+                            '</ul>' +
+                        '</div>'
+                    );
+
+
+                    $(".profileMenuPopup").trigger("create");
+                    $(".profiledd").off("click");
+                    $(".profiledd").on("click", function () {
+                        try {
+                            $(".profileMenuPopup").popup('open', { positionTo: '#profilePos' });
+                        }
+                        catch (e) {
+
+                        }
+                    });
+                });
+            }
+            catch (e) {
+
+            }
 
             // wait for the FileCollection to Load First
             $.when(
@@ -507,32 +539,6 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
                 $.mobile.changePage("#home", { reverse: false, changeHash: false });
                 $("#home").trigger("create");
 
-                try{
-                    // Profile menu code
-                    $(".profiledd").off("click");
-                    $(".profiledd").on("click", function () {
-                        $(".profileMenuPopup").popup('open', { positionTo: '#profilePos' });
-                    });
-                    var strOrg = "";
-                    _.each(App.myOrgs, function (org) {
-                        strOrg = strOrg + "<li><a onclick='App.reloadNewOrg(" + org.Orgs.id + ")'>" + org.Orgs.orgName + "</a></li>";
-
-                    });
-                    $("div[data-role='profilemenu']").html("");
-                    $("div[data-role='profilemenu']").append(
-                        '<div data-role="popup" class="profileMenuPopup" data-theme="d">' +
-                            '<ul data-role="listview" data-inset="true" style="min-width:250px;" data-theme="d">' +
-                                '<li data-role="divider" data-theme="g">Switch to Friends Survey:</li>' + strOrg +
-                            '</ul>' +
-                        '</div>'
-                    );
-                    $(".profileMenuPopup").trigger("create");
-                    
-                }
-                catch (e) { }
-             
-                
-
                 $("[data-role='wsk-nav-bar']").html(_.template(NavBarTemplate, { orgId: App.defaultOrg, homeSelected: "ui-btn-active" }));
                 $("#home").trigger("create");
 
@@ -547,11 +553,6 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
                     App.homeCompositeView.render();
                 }
 
-                // style
-                $("#home").trigger("create");
-
-                
-
 
                 ///
                 /// End Success
@@ -562,7 +563,9 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
                 //console.log("Error fetching files");
             });
 
+            $("#home").trigger("create");
 
+            
         },
 
         /// <summary>
@@ -704,20 +707,7 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
                 App.fileInstanceCollection = new FileInstanceCollection();  // TODO change this to get all fileInstances by fileId,  add an attribute "cachedForFile" to collection containing files that have already been fetched
             }
 
-            try{
-                //if (App.importer.reloadFlag) { // this route might be slow if there is a large number of surveys
-                //    App.importer.reloadFlag = false;
-                    $("#report-sync").html("syncing...");
-                    App.fileInstanceCollection.fetch({
-                        reset: true,
-                        success: function () {
-                            $("#report-sync").html("");
-                            App.reportTableView.render(fileId);
-                        }
-                    });
-                //}
-            }
-            catch (e) { }
+           
             
             
 
@@ -730,15 +720,21 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
                  App.fileInstanceCollection.deferred,
                  App.uOptionCollection.deferred
            ).then(function () {
-               $.mobile.loading("hide");
-               if (!App.reportTableView) {
-                   App.reportTableView = new ReportTableView();
-                   App.reportTableView.render(fileId);
-               }
-               else {
-                   App.reportTableView.render(fileId);
-               }
-
+                $("#report-sync").html("syncing...");
+                App.fileInstanceCollection.fetch({
+                    reset: true,
+                    success: function () {
+                        $("#report-sync").html("");
+                        $.mobile.loading("hide");
+                        if (!App.reportTableView) {
+                            App.reportTableView = new ReportTableView();
+                            App.reportTableView.render(fileId);
+                        }
+                        else {
+                            App.reportTableView.render(fileId);
+                        }
+                    }
+                });
            });
            
         },
