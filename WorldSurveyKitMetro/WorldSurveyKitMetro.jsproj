@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>a8a27638-2b56-4682-9ccf-a43879af7a01</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0'">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props" />
+  <PropertyGroup>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <RequiredPlatformVersion>8.1</RequiredPlatformVersion>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <PackageCertificateKeyFile>WorldSurveyKitMetro_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppxManifest Include="package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="css\app.css" />
+    <Content Include="css\faicons-v2.png" />
+    <Content Include="css\faicons.png" />
+    <Content Include="css\font\fontawesome-webfont.eot" />
+    <Content Include="css\font\fontawesome-webfont.ttf" />
+    <Content Include="css\font\fontawesome-webfont.woff" />
+    <Content Include="css\font\FontAwesome.otf" />
+    <Content Include="css\images\ajax-loader.gif" />
+    <Content Include="css\images\back_disabled.png" />
+    <Content Include="css\images\back_enabled.png" />
+    <Content Include="css\images\back_enabled_hover.png" />
+    <Content Include="css\images\favicon.ico" />
+    <Content Include="css\images\forward_disabled.png" />
+    <Content Include="css\images\forward_enabled.png" />
+    <Content Include="css\images\forward_enabled_hover.png" />
+    <Content Include="css\images\icons-18-black-pack.png" />
+    <Content Include="css\images\icons-18-white-pack.png" />
+    <Content Include="css\images\icons-36-black-pack.png" />
+    <Content Include="css\images\icons-36-white-pack.png" />
+    <Content Include="css\images\sort_asc.png" />
+    <Content Include="css\images\sort_asc_disabled.png" />
+    <Content Include="css\images\sort_both.png" />
+    <Content Include="css\images\sort_desc.png" />
+    <Content Include="css\images\sort_desc_disabled.png" />
+    <Content Include="css\jqm-icon-pack-3.0.0-fa.css" />
+    <Content Include="css\jquery-tourbus.css" />
+    <Content Include="css\jquery.handsontable.css" />
+    <Content Include="css\jquery.mobile-1.3.0.min.css" />
+    <Content Include="css\jquery.signaturepad.css" />
+    <Content Include="css\tdfriendselector\tdfriendselector.css" />
+    <Content Include="css\tdfriendselector\tdfriendselector.png" />
+    <Content Include="images\accent.png" />
+    <Content Include="images\AquaClara.gif" />
+    <Content Include="images\bg-footer-noise.jpg" />
+    <Content Include="images\bullet.png" />
+    <Content Include="images\city.jpg" />
+    <Content Include="images\demo\demo.png" />
+    <Content Include="images\demo\screen-build.png" />
+    <Content Include="images\demo\screen-gps.png" />
+    <Content Include="images\demo\screen-import.png" />
+    <Content Include="images\demo\screen-multi.png" />
+    <Content Include="images\demo\screen-open.png" />
+    <Content Include="images\demo\screen-report.png" />
+    <Content Include="images\demo\screen-sidemenu.png" />
+    <Content Include="images\demo\screen-signature.png" />
+    <Content Include="images\demo\screen-single.png" />
+    <Content Include="images\facebook_login.png" />
+    <Content Include="images\facebook_login_sm.png" />
+    <Content Include="images\heroAccent.png" />
+    <Content Include="images\home.png" />
+    <Content Include="images\icons\hdpi.png" />
+    <Content Include="images\icons\mdpi.png" />
+    <Content Include="images\icons\xhdpi.png" />
+    <Content Include="images\loadingLg.gif" />
+    <Content Include="images\loadingSm.gif" />
+    <Content Include="images\lumbergh.jpg" />
+    <Content Include="images\orderedList0.png" />
+    <Content Include="images\orderedList1.png" />
+    <Content Include="images\orderedList2.png" />
+    <Content Include="images\orderedList3.png" />
+    <Content Include="images\orderedList4.png" />
+    <Content Include="images\orderedList5.png" />
+    <Content Include="images\orderedList6.png" />
+    <Content Include="images\orderedList7.png" />
+    <Content Include="images\orderedList8.png" />
+    <Content Include="images\orderedList9.png" />
+    <Content Include="images\qrcode.png" />
+    <Content Include="images\sky.jpg" />
+    <Content Include="images\wsk-sm.png" />
+    <Content Include="images\wsk.png" />
+    <Content Include="index.html" />
+    <Content Include="images\logo.scale-100.png" />
+    <Content Include="images\smalllogo.scale-100.png" />
+    <Content Include="images\splashscreen.scale-100.png" />
+    <Content Include="images\storelogo.scale-100.png" />
+    <Content Include="js\collections\FileCollection.js" />
+    <Content Include="js\collections\FileInstanceCollection.js" />
+    <Content Include="js\collections\MenuCollection.js" />
+    <Content Include="js\collections\MyOrgsCollection.js" />
+    <Content Include="js\collections\OpenEndedCollection.js" />
+    <Content Include="js\collections\OptionCollection.js" />
+    <Content Include="js\collections\OrgCollection.js" />
+    <Content Include="js\collections\QuestionCollection.js" />
+    <Content Include="js\collections\ResponseCollection.js" />
+    <Content Include="js\collections\UFileCollection.js" />
+    <Content Include="js\collections\UFileInstanceCollection.js" />
+    <Content Include="js\collections\UOptionCollection.js" />
+    <Content Include="js\collections\UQuestionCollection.js" />
+    <Content Include="js\collections\UResponseCollection.js" />
+    <Content Include="js\collections\UserManagerCollection.js" />
+    <Content Include="js\collections\UserOrgCollection.js" />
+    <Content Include="js\collections\UTestStoreCollection.js" />
+    <Content Include="js\config.js" />
+    <Content Include="js\default.js" />
+    <Content Include="js\device\android.js" />
+    <Content Include="js\device\iphone.js" />
+    <Content Include="js\device\web.js" />
+    <Content Include="js\libs\backbone-0.9.2.js" />
+    <Content Include="js\libs\backbone.facebook.js" />
+    <Content Include="js\libs\backbone.offline.js" />
+    <Content Include="js\libs\cdv-plugin-fb-connect.js" />
+    <Content Include="js\libs\cordova-android-2.3.0.js" />
+    <Content Include="js\libs\cordova-android-2.5.0.js" />
+    <Content Include="js\libs\facebook_js_sdk.js" />
+    <Content Include="js\libs\flashcanvas.js" />
+    <Content Include="js\libs\jquery-1.8.0-windows8-ready.js" />
+    <Content Include="js\libs\jquery-1.8.2.min.js" />
+    <Content Include="js\libs\jquery-1.8.3.js" />
+    <Content Include="js\libs\jquery-2.0.3.js" />
+    <Content Include="js\libs\jquery.backstretch.min.js" />
+    <Content Include="js\libs\jquery.dataTables.js" />
+    <Content Include="js\libs\jquery.handsontable.full.js" />
+    <Content Include="js\libs\jquery.mobile-1.3.1.js" />
+    <Content Include="js\libs\jquery.mobile-1.4.0.js" />
+    <Content Include="js\libs\jquery.signaturepad.js" />
+    <Content Include="js\libs\jquery.signaturepad_old.js" />
+    <Content Include="js\libs\jquery.table2csv.js" />
+    <Content Include="js\libs\jquery.tourbus.js" />
+    <Content Include="js\libs\jquerymobile-1.3.0.js" />
+    <Content Include="js\libs\json2.min.js" />
+    <Content Include="js\libs\lodash.js" />
+    <Content Include="js\libs\MobileServices.intellisense.js" />
+    <Content Include="js\libs\MobileServices.js" />
+    <Content Include="js\libs\MobileServices.min.js" />
+    <Content Include="js\libs\MobileServices.pri" />
+    <Content Include="js\libs\modernizr.js" />
+    <Content Include="js\libs\q.js" />
+    <Content Include="js\libs\require-2.1.1.js" />
+    <Content Include="js\libs\require-2.1.5.js" />
+    <Content Include="js\libs\require-2.1.6.js" />
+    <Content Include="js\libs\shims\extras\modernizr-custom.js" />
+    <Content Include="js\libs\shims\extras\mousepress.js" />
+    <Content Include="js\libs\shims\polyfiller.js" />
+    <Content Include="js\libs\shims\shims\color-picker.js" />
+    <Content Include="js\libs\shims\shims\combos\1.js" />
+    <Content Include="js\libs\shims\shims\combos\10.js" />
+    <Content Include="js\libs\shims\shims\combos\11.js" />
+    <Content Include="js\libs\shims\shims\combos\12.js" />
+    <Content Include="js\libs\shims\shims\combos\13.js" />
+    <Content Include="js\libs\shims\shims\combos\14.js" />
+    <Content Include="js\libs\shims\shims\combos\15.js" />
+    <Content Include="js\libs\shims\shims\combos\16.js" />
+    <Content Include="js\libs\shims\shims\combos\17.js" />
+    <Content Include="js\libs\shims\shims\combos\18.js" />
+    <Content Include="js\libs\shims\shims\combos\19.js" />
+    <Content Include="js\libs\shims\shims\combos\2.js" />
+    <Content Include="js\libs\shims\shims\combos\20.js" />
+    <Content Include="js\libs\shims\shims\combos\21.js" />
+    <Content Include="js\libs\shims\shims\combos\22.js" />
+    <Content Include="js\libs\shims\shims\combos\23.js" />
+    <Content Include="js\libs\shims\shims\combos\24.js" />
+    <Content Include="js\libs\shims\shims\combos\25.js" />
+    <Content Include="js\libs\shims\shims\combos\26.js" />
+    <Content Include="js\libs\shims\shims\combos\27.js" />
+    <Content Include="js\libs\shims\shims\combos\28.js" />
+    <Content Include="js\libs\shims\shims\combos\29.js" />
+    <Content Include="js\libs\shims\shims\combos\3.js" />
+    <Content Include="js\libs\shims\shims\combos\30.js" />
+    <Content Include="js\libs\shims\shims\combos\31.js" />
+    <Content Include="js\libs\shims\shims\combos\4.js" />
+    <Content Include="js\libs\shims\shims\combos\5.js" />
+    <Content Include="js\libs\shims\shims\combos\6.js" />
+    <Content Include="js\libs\shims\shims\combos\7.js" />
+    <Content Include="js\libs\shims\shims\combos\8.js" />
+    <Content Include="js\libs\shims\shims\combos\9.js" />
+    <Content Include="js\libs\shims\shims\details.js" />
+    <Content Include="js\libs\shims\shims\dom-extend.js" />
+    <Content Include="js\libs\shims\shims\es5.js" />
+    <Content Include="js\libs\shims\shims\excanvas.js" />
+    <Content Include="js\libs\shims\shims\filereader.js" />
+    <Content Include="js\libs\shims\shims\FlashCanvasPro\canvas2png.js" />
+    <Content Include="js\libs\shims\shims\FlashCanvasPro\flash10canvas.swf" />
+    <Content Include="js\libs\shims\shims\FlashCanvasPro\flash9canvas.swf" />
+    <Content Include="js\libs\shims\shims\FlashCanvasPro\flashcanvas.js" />
+    <Content Include="js\libs\shims\shims\FlashCanvasPro\proxy.php" />
+    <Content Include="js\libs\shims\shims\FlashCanvasPro\save.php" />
+    <Content Include="js\libs\shims\shims\FlashCanvas\canvas2png.js" />
+    <Content Include="js\libs\shims\shims\FlashCanvas\flashcanvas.js" />
+    <Content Include="js\libs\shims\shims\FlashCanvas\flashcanvas.swf" />
+    <Content Include="js\libs\shims\shims\FlashCanvas\proxy.php" />
+    <Content Include="js\libs\shims\shims\FlashCanvas\save.php" />
+    <Content Include="js\libs\shims\shims\form-core.js" />
+    <Content Include="js\libs\shims\shims\form-datalist-lazy.js" />
+    <Content Include="js\libs\shims\shims\form-datalist.js" />
+    <Content Include="js\libs\shims\shims\form-message.js" />
+    <Content Include="js\libs\shims\shims\form-native-extend.js" />
+    <Content Include="js\libs\shims\shims\form-number-date-api.js" />
+    <Content Include="js\libs\shims\shims\form-number-date-ui.js" />
+    <Content Include="js\libs\shims\shims\form-shim-extend.js" />
+    <Content Include="js\libs\shims\shims\form-validation.js" />
+    <Content Include="js\libs\shims\shims\form-validators.js" />
+    <Content Include="js\libs\shims\shims\forms-picker.js" />
+    <Content Include="js\libs\shims\shims\geolocation.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-ar.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-ch-ZN.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-de.txt" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-el.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-en.txt" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-es.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-fr.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-he.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-hi.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-hu.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-it.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-ja.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-lt.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-nl.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-pt-PT.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-ru.js" />
+    <Content Include="js\libs\shims\shims\i18n\formcfg-sv.js" />
+    <Content Include="js\libs\shims\shims\jpicker\ChangeLog.txt" />
+    <Content Include="js\libs\shims\shims\jpicker\images\AlphaBar.png" />
+    <Content Include="js\libs\shims\shims\jpicker\images\bar-opacity.png" />
+    <Content Include="js\libs\shims\shims\jpicker\images\Bars.png" />
+    <Content Include="js\libs\shims\shims\jpicker\images\map-opacity.png" />
+    <Content Include="js\libs\shims\shims\jpicker\images\mappoint.gif" />
+    <Content Include="js\libs\shims\shims\jpicker\images\Maps.png" />
+    <Content Include="js\libs\shims\shims\jpicker\images\NoColor.png" />
+    <Content Include="js\libs\shims\shims\jpicker\images\picker.gif" />
+    <Content Include="js\libs\shims\shims\jpicker\images\preview-opacity.png" />
+    <Content Include="js\libs\shims\shims\jpicker\images\rangearrows.gif" />
+    <Content Include="js\libs\shims\shims\jpicker\images\Thumbs.db" />
+    <Content Include="js\libs\shims\shims\jpicker\jpicker.css" />
+    <Content Include="js\libs\shims\shims\jpicker\ReadMe.txt" />
+    <Content Include="js\libs\shims\shims\json-storage.js" />
+    <Content Include="js\libs\shims\shims\mediaelement-core.js" />
+    <Content Include="js\libs\shims\shims\mediaelement-jaris.js" />
+    <Content Include="js\libs\shims\shims\mediaelement-native-fix.js" />
+    <Content Include="js\libs\shims\shims\mediaelement-yt.js" />
+    <Content Include="js\libs\shims\shims\range-ui.js" />
+    <Content Include="js\libs\shims\shims\styles\config.rb" />
+    <Content Include="js\libs\shims\shims\styles\details-arrows.png" />
+    <Content Include="js\libs\shims\shims\styles\forms.png" />
+    <Content Include="js\libs\shims\shims\styles\polyfill-loader.gif" />
+    <Content Include="js\libs\shims\shims\styles\range-track.png" />
+    <Content Include="js\libs\shims\shims\styles\scss\shim.scss" />
+    <Content Include="js\libs\shims\shims\styles\shim.css" />
+    <Content Include="js\libs\shims\shims\styles\vertical-range.png" />
+    <Content Include="js\libs\shims\shims\swfmini.js" />
+    <Content Include="js\libs\shims\shims\swf\filereader.swf" />
+    <Content Include="js\libs\shims\shims\swf\JarisFLVPlayer.swf" />
+    <Content Include="js\libs\shims\shims\swf\jwwebshims.swf" />
+    <Content Include="js\libs\shims\shims\swf\localStorage.swf" />
+    <Content Include="js\libs\shims\shims\track-ui.js" />
+    <Content Include="js\libs\shims\shims\track.js" />
+    <Content Include="js\libs\sly.js" />
+    <Content Include="js\libs\tdfriendselector.js" />
+    <Content Include="js\libs\text.js" />
+    <Content Include="js\libs\underscore.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\models\MenuModel.js" />
+    <Content Include="js\models\Models.js" />
+    <Content Include="js\router.js" />
+    <Content Include="js\templates\AdminMenuTemplate.html" />
+    <Content Include="js\templates\GoCameraTemplate.html" />
+    <Content Include="js\templates\GoGpsTemplate.html" />
+    <Content Include="js\templates\GoOpenEndedTemplate.html" />
+    <Content Include="js\templates\GoOptionsTemplate.html" />
+    <Content Include="js\templates\GoSignatureTemplate.html" />
+    <Content Include="js\templates\MenuTemplate.html" />
+    <Content Include="js\templates\NavBarAdminTemplate.html" />
+    <Content Include="js\templates\NavBarUserTemplate.html" />
+    <Content Include="js\templates\OrgItemTemplate.html" />
+    <Content Include="js\templates\QCameraTemplate.html" />
+    <Content Include="js\templates\QGpsTemplate.html" />
+    <Content Include="js\templates\QOpenEndedTemplate.html" />
+    <Content Include="js\templates\QOptionAnswerTemplate.html" />
+    <Content Include="js\templates\QSignatureTemplate.html" />
+    <Content Include="js\templates\ReportTableTemplate.html" />
+    <Content Include="js\templates\UserEditPopupTemplate.html" />
+    <Content Include="js\templates\UserManagerTemplate.html" />
+    <Content Include="js\templates\UserOrgItemTemplate.html" />
+    <Content Include="js\templates\UserRowTemplate.html" />
+    <Content Include="js\views\AuthView.js" />
+    <Content Include="js\views\CollView.js" />
+    <Content Include="js\views\FileBuilderCompositeView.js" />
+    <Content Include="js\views\FileCompositeView.js" />
+    <Content Include="js\views\GoCompositeView.js" />
+    <Content Include="js\views\GoGpsView.js" />
+    <Content Include="js\views\GoOpenEndedView.js" />
+    <Content Include="js\views\GoOptionsView.js" />
+    <Content Include="js\views\GoSignatureView.js" />
+    <Content Include="js\views\HistoryView.js" />
+    <Content Include="js\views\HomeCompositeView.js" />
+    <Content Include="js\views\ImportView.js" />
+    <Content Include="js\views\MenuView.js" />
+    <Content Include="js\views\OrgCompositeView.js" />
+    <Content Include="js\views\OrgItemView.js" />
+    <Content Include="js\views\QCameraView.js" />
+    <Content Include="js\views\QGpsView.js" />
+    <Content Include="js\views\QOpenEndedView.js" />
+    <Content Include="js\views\QOptionAnswerView.js" />
+    <Content Include="js\views\QSignatureView.js" />
+    <Content Include="js\views\ReportTableView.js" />
+    <Content Include="js\views\RoleItemView.js" />
+    <Content Include="js\views\SettingsCompositeView.js" />
+    <Content Include="js\views\UserCompositeView.js" />
+    <Content Include="js\views\UserItemView.js" />
+    <Content Include="js\views\UserManagerView.js" />
+    <Content Include="js\views\UserRowView.js" />
+    <Content Include="packages.config" />
+    <Content Include="youtubeframe.html" />
+    <None Include="WorldSurveyKitMetro_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.WinJS.2.0, Version=1.0" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
+  <!-- To modify your build process, add your task inside one of the targets below then uncomment
+       that target and the DisableFastUpToDateCheck PropertyGroup. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <PropertyGroup>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+  -->
+</Project>

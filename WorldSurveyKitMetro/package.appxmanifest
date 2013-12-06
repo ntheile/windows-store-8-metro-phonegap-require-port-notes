@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="a8a27638-2b56-4682-9ccf-a43879af7a01" Version="1.0.0.0" Publisher="CN=nick" />
+  <Properties>
+    <DisplayName>WorldSurveyKitMetro</DisplayName>
+    <PublisherDisplayName>nick</PublisherDisplayName>
+    <Logo>images\storelogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" StartPage="index.html">
+      <m2:VisualElements DisplayName="WorldSurveyKitMetro" Description="WorldSurveyKitMetro" ForegroundText="light" BackgroundColor="#464646" Square150x150Logo="images\Logo.png" Square30x30Logo="images\SmallLogo.png">
+        <m2:SplashScreen Image="images\splashscreen.png" />
+      </m2:VisualElements>
+      <ApplicationContentUriRules>
+        <Rule Match="https://worldsurveykit.com/*" Type="include" />
+        <Rule Match="https://facebook.com/*" Type="include" />
+        <Rule Match="https://youtube.com/*" Type="include" />
+        <Rule Match="https://www.facebook.com/*" Type="include" />
+        <Rule Match="https://bitbucket.org/*" Type="include" />
+        <Rule Match="https://connect.facebook.net/*" Type="include" />
+        <Rule Match="https://connect.facebook.net/en_US/all.js" Type="include" />
+        <Rule Match="https://translate.google.com/translate_a/element.js" Type="include" />
+        <Rule Match="https://google.com/*" Type="include" />
+        <Rule Match="https://wskauth.azure-mobile.net/*" Type="include" />
+        <Rule Match="https://m.facebook.com/*" Type="include" />
+        <Rule Match="https://graph.facebook.com/*" Type="include" />
+      </ApplicationContentUriRules>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
+    <Capability Name="privateNetworkClientServer" />
+    <DeviceCapability Name="location" />
+  </Capabilities>
+</Package>

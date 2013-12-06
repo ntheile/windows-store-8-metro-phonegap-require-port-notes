@@ -1,0 +1,1607 @@
+<!doctype html>
+<html class="no-js ui-mobile-rendering" >
+<head>
+      <title>World Survey Kit - Build Surveys, Polls, Signatures, Quizzes, Questions, Answers </title>
+      <meta name="keywords" content="Survey, Polls, Signatures, Quizzes, Questions, Answers, GPS">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="google-translate-customization" content="3ffe706bf7eec298-703e66ffc87b89bc-g3b27300caeeca2a3-18">
+      <link href="css/jquery.mobile-1.3.0.min.css" rel="stylesheet" />
+      <link href="css/app.css" rel="stylesheet" />
+      <link href="css/jqm-icon-pack-3.0.0-fa.css" rel="stylesheet" />
+      <link href="css/jquery.handsontable.css" rel="stylesheet" />
+      <link href="css/jquery-tourbus.css" rel="stylesheet" />
+      <link href="css/tdfriendselector/tdfriendselector.css" rel="stylesheet" />
+</head>
+<body class="daBody">
+    <div id="profilePos" style="float:right"></div>
+    <div style="clear:both"></div>
+    <!-- This initializes the Facebook JS SDK -->
+    <div id="fb-root"></div>
+
+    <!-- /Login Page -->
+    <div id="login" data-role="page" data-title="Login to the System">
+
+        <!-- /header -->
+        <div data-role="header" data-theme="b">
+
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false" data-theme="g">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" /><span class="loginBtnText">&nbsp;&nbsp;<img src="images/loadingSm.gif" /> </span>
+                </button>
+            </div>
+
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+
+            </div>
+
+            <div class="main-content splash">
+                <center>
+                    <ul data-role="listview" data-inset="true" data-theme="c" class="wskLogo">
+                        <li>
+                            <center>
+                                <img id="appLogo" src="images/wsk.png" /><br />
+                                <b id="appOrgName">World Survey Kit</b>
+                            </center>
+                        </li>
+                    </ul>
+                    <div>
+                        <center>
+                            <div class="sign-up-btn">
+                                <button data-theme="g" class="loginBtn" data-corners="false">Free Sign Up</button>
+                            </div>
+                            <div style="float:right">
+                                <a href="http://play.google.com/store/apps/details?id=com.worldsurveykit.survey" target="_blank">
+                                    <img alt="Android app on Google Play"
+                                         src="http://developer.android.com/images/brand/en_app_rgb_wo_60.png" />
+                                </a>
+                            </div>
+                            <div style="clear:both"></div>
+                        </center>
+                    </div>
+                    <div>
+                        <ul data-role="listview" class="notAuth" style="display:none;">
+                            <li>
+                                <center>
+                                    Currently you are not authorized to view this application.
+                                    <button data-inline="true" onclick='$( "#popupContact" ).popup( "open");' data-theme="b" data-icon="envelope">Email</button>
+                                    for BETA access. Or try logging in again.
+
+                                </center>
+                            </li>
+                        </ul>
+                        <br /><br />
+                    </div>
+
+
+
+
+                    <div class="hide-mobile">
+                        <div class="pages2">
+                            <div class="handle2"></div>
+                        </div>
+                        <div id="frame2" class="frame2" data-role="none">
+                            <div class="slidee2">
+                                <div>
+                                    Build a survey<br />
+                                    <img src="images/demo/screen-build.png" />
+                                </div>
+                                <div>
+                                    Take a survey<br />
+                                    <img src="images/demo/screen-sidemenu.png" />
+                                </div>
+                                <div>
+                                    View Results and analytics<br />
+                                    <img src="images/demo/screen-report.png" />
+                                </div>
+                                <div>
+                                    Import Data in bulk from other systems<br />
+                                    <img src="images/demo/screen-import.png" />
+                                </div>
+                                <div>
+                                    GPS<br />
+                                    <img src="images/demo/screen-gps.png" />
+                                </div>
+                                <div>
+                                    Signature<br />
+                                    <img src="images/demo/screen-signature.png" />
+                                </div>
+                                <div>
+                                    Single Answer<br />
+                                    <img src="images/demo/screen-single.png" />
+                                </div>
+                                <div>
+                                    Multiple Choice<br />
+                                    <img src="images/demo/screen-multi.png" />
+                                </div>
+                                <div>
+                                    Open Ended<br />
+                                    <img src="images/demo/screen-open.png" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </center>
+
+
+                <div data-role="popup" id="beta" data-theme="c" class="ui-content" style="max-width:280px">
+                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                    <div>
+                        <b>This site is being actively develped and is still in BETA. Contact us in the footer below to get access.</b>
+                    </div>
+                </div>
+
+                <div data-role="popup" id="popupContact" data-theme="c" class="ui-content" style="max-width:280px">
+                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                    <div id="daContacter"></div>
+                </div>
+
+                <div data-role="popup" id="investors" data-theme="c" class="ui-content" style="max-width:600px">
+                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                </div>
+
+            </div>
+
+        </div><!-- /content -->
+
+        <div data-role="footer" data-theme="a" class="hide-mobile">
+            <br />
+            <center>
+                <div>
+                    <div class="pages">
+                        <div class="handle"></div>
+                    </div>
+                    <div id="frame" class="frame" data-role="none">
+                        <div class="slidee">
+
+                            <div>
+                                <a data-role="button" data-iconpos="notext" data-icon="plus" data-inline="true" data-iconshadow="false" data-theme="b"></a>&nbsp;Create a survey<br />
+                                Get Answers <br />
+                                Create organizations<br />
+                                <a data-role="button" data-iconpos="notext" data-icon="globe" data-inline="true" class="ui-icon-nodisc ui-icon-alt" data-iconshadow="false" data-theme="b"></a>&nbsp;Help the world<br />
+                                Help yourself<br />
+                                Solve a problem
+
+                            </div>
+                            <div>
+                                Collect Signatures<br />
+                                <a data-role="button" data-iconpos="notext" data-icon="screenshot" data-inline="true" class="ui-icon-nodisc ui-icon-alt" data-iconshadow="false" data-theme="b"></a>&nbsp;Get GPS locations<br />
+                                Create Questions<br />
+                                Multiple Choice<br />
+                                Single Answer<br />
+                                Open Ended
+                            </div>
+                            <div>
+                                Run your business<br />
+                                Grow your NGO<br />
+                                Mobile App<br />
+                                Works Offline
+                            </div>
+                            <div>
+                                Role Based Security<br />
+                                Print Survey Reports<br />
+                                Export Survey Results<br />
+                                Import Data<br />
+                                Translate Surveys to 50+ languages
+                            </div>
+                            <div>
+                                Share via email<br />
+                                Share via link<br />
+                                Share privately with users<br />
+                                Embed on your webpage
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </center>
+            <br /><br />
+        </div>
+
+        <div data-role="footer" data-theme="d" class="hide-mobile">
+            <br />
+            <center>
+                <h2>See how the journey began</h2>
+                <iframe class="hide-mobile" width="853" height="480" src="ms-appx-web:///google.com" frameborder="0" sandbox="allow-top-navigation"></iframe>
+            </center>
+            <br /><br />
+        </div>
+
+        <div data-role="footer" data-theme="a" data-position="fixed">
+            <ul style="list-style:none">
+                <li>
+                    World Survey Kit &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp; Contact us <a href="worldsurveykit@outlook.com">worldsurveykit@outlook.com</a>
+                    &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp; A Nick Theile Production
+                </li>
+            </ul>
+        </div>
+
+
+
+    </div>
+
+    <!-- /Home Page -->
+    <div id="home" data-role="page" data-title="Home Page">
+
+
+        <div data-role="panel" id="panelHome" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+                <li data-icon="question"><a href="#tutorial">Tutorial</a></li>
+                <!--<li data-theme="b">Admin Stuff</li>
+                <li ><a href="#admin">Admin</a></li>
+                <li ><a href="#test">Test</a></li>
+                <li ><a href="#coll">Storage</a></li>-->
+            </ul>
+        </div>
+
+
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelHome" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+            </div>
+            <img src="images/wsk-sm.png" />
+            <div data-role="fblogin">
+                <button class="loginBtn ui-btn-right" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+                <div data-role="wsk-nav-bar">
+                    <!--this is populated dynamically-->
+                </div>
+            </div>
+
+            <div class="main-content">
+
+                <h3 id="homeHeading" style="float:left"></h3>
+                <!--<b class="green-ball" style="float:right">.</b>-->
+                <div style="clear:both"></div>
+
+                <ul id="homeListView" data-role="listview" data-inset="true" data-inline="true" data-theme="b" style="visibility:hidden">
+                    <li data-icon="plus"><a id="homeNewSurvey" data-position-to="window">Fill out a New Survey</a></li>
+                    <li><a href="#history?0" onclick="$.mobile.loading('show')">View Survey History<span class="ui-li-count homeSurveyHistory"></span></a></li>
+                </ul>
+
+                <br />
+                <div id="activityFeed">
+
+
+                </div>
+
+                <div data-role="popup" id="homeNewSurveyPopup" style="max-width:400px;" class="ui-content ui-corner-all">
+
+                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Cancel</a>
+
+                    <b>1). Type a name that easily identifies this survey:</b>
+                    <input id="homeNewSurveyName" />
+
+                    <b>2). Choose a survey to fill out:</b>
+                    <div id="homeNewSurveyList">
+                    </div>
+
+                </div>
+                <center><b id="home-load-msg"></b></center>
+
+            </div>
+
+        </div>
+
+
+
+
+        <!--tour-->
+        <ol class='tourbus-legs ui-overlay-shadow' id='my-tour-id'>
+            <li data-orientation='centered' class="ui-overlay-shadow">
+                <h2>Welcome to World Survey Kit</h2>
+                <a data-role="button" href='javascript:void(0);' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right" class='tourbus-next'>Take the tour</a>
+                <a href='javascript:void(0);' class='tourbus-stop'>Skip</a>
+
+            </li>
+
+            <li data-el='#homeListView' data-orientation='top' data-width='400'>
+                <h3>Take a survey</h3>
+                <p>Fill out a new survey here or view/edit your survey history</p>
+
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-prev' data-inline="true" data-theme="g" data-icon="arrow-left">Back</a>
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
+                </div>
+            </li>
+
+            <li data-el='.ui-block-b' data-orientation='bottom' data-align="center" data-width='300'>
+                <h3>Manage Users</h3>
+                <p>Add your friends from Facebook and allow them to take surveys you build.</p>
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-prev' data-inline="true" data-theme="g" data-icon="arrow-left">Back</a>
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
+                </div>
+            </li>
+
+            <li data-el='.ui-block-c' data-orientation='bottom' data-align="center" data-width='300'>
+                <h3>Reports</h3>
+                <p>
+                    <ul>
+                        <li>
+                            View the responses from your surveys
+                        </li>
+                        <li>
+                            Search and filter data
+                        </li>
+                        <li>
+                            Export or print the results
+                        </li>
+                        <li>
+                            Import survey data in bulk
+                        </li>
+                        <li>
+                            Edit responses
+                        </li>
+                    </ul>
+
+                </p>
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-prev' data-inline="true" data-theme="g" data-icon="arrow-left">Back</a>
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
+                </div>
+            </li>
+
+            <li data-el='.ui-block-d' data-orientation='bottom' data-align="center" data-width='300'>
+                <h3>Survey Builder</h3>
+                <p>
+                    <ul>
+                        <li>
+                            Build a new survey
+                        </li>
+                        <li>
+                            Add questions<br />
+                            &nbsp;&nbsp;Multiple Choice<br />
+                            &nbsp;&nbsp;Single Answer<br />
+                            &nbsp;&nbsp;Open Ended<br />
+                            &nbsp;&nbsp;GPS<br />
+                            &nbsp;&nbsp;Signature
+                        </li>
+                        <li>
+                            Publish the survey
+                        </li>
+                    </ul>
+
+
+                </p>
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-prev' data-inline="true" data-theme="g" data-icon="arrow-left">Back</a>
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
+                </div>
+            </li>
+
+            <li data-el='.ui-block-e' data-orientation='bottom' data-align="center" data-width='300'>
+                <h3>Manage Setting</h3>
+                <p>Manage your organizations, translate surveys into different languages.</p>
+
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-prev' data-inline="true" data-theme="g" data-icon="arrow-left">Back</a>
+                    <a data-role="button" href='javascript:void(0);' onclick='$(".profileMenuPopup").popup("open", { positionTo: "#profilePos" });' class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
+                </div>
+            </li>
+
+            <li data-el='#profilePos' data-orientation='bottom' data-align="right" data-margin="160" data-width='300'>
+                <h3>Switch to a freinds survey by clicking the dropdown</h3>
+                <p>
+                    If a friend invites you to take their survey you can switch to it here.
+                </p>
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-prev' data-inline="true" data-theme="g" data-icon="arrow-left">Back</a>
+                    <a data-role="button" href='javascript:void(0);' onclick="App.router.navigate('#build?' + App.defaultOrg  , {trigger: true});" class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
+                </div>
+            </li>
+
+            <li data-orientation='centered' data-width="300">
+                <h3>Mobile App</h3>
+                <p>
+                    World Survey Kit is great for on-site surveys even if there is no internet connectivity!
+                    <br /><br />
+                    Download the Android app now
+                    <center>
+                        <img src="images/qrcode.png" /><br />
+                        <a href="http://play.google.com/store/apps/details?id=com.worldsurveykit.survey" target="_blank">
+                            <img alt="Android app on Google Play"
+                                 src="http://developer.android.com/images/brand/en_app_rgb_wo_60.png" />
+                        </a>
+                    </center>
+                    <br /><br />
+                    iPhone and Windows app coming soon.
+                </p>
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-prev' data-inline="true" data-theme="g" data-icon="arrow-left">Back</a>
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
+                </div>
+            </li>
+
+            <li data-orientation='centered' data-width="300">
+                <h3>Get Building!</h3>
+                <p>
+                    Get started by building a new survey, then you can share it with friends.
+                </p>
+                <a data-role="button" href='javascript:void(0);' data-inline="true" data-theme="g" class='tourbus-stop'>Ok</a>
+            </li>
+
+        </ol>
+
+
+        <!--tour non admin-->
+        <ol class='tourbus-legs ui-overlay-shadow' id='my-tour-id-nonadmin'>
+            <li data-orientation='centered' class="ui-overlay-shadow">
+                <h2>Welcome to World Survey Kit</h2>
+                <a data-role="button" href='javascript:void(0);' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right" class='tourbus-next'>Take the tour</a>
+                <a href='javascript:void(0);' class='tourbus-stop'>Skip</a>
+
+            </li>
+
+            <li data-el='#homeListView' data-orientation='bottom' data-width='400'>
+                <h3>Take a survey</h3>
+                <p>Fill out a new survey here or view/edit your survey history</p>
+
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-prev' data-inline="true" data-theme="g" data-icon="arrow-left">Back</a>
+                    <a data-role="button" href='javascript:void(0);' onclick='$(".profileMenuPopup").popup("open", { positionTo: "#profilePos" });' class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
+                </div>
+            </li>
+
+
+
+            <li data-el='#profilePos' data-orientation='bottom' data-align="right" data-margin="160" data-width='300'>
+                <h3>Switch to a friends survey</h3>
+                <p>
+                    If a friend invites you to take their survey you can switch to it here. Or you can switch back to your profile and build your own survey.
+                </p>
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-prev' data-inline="true" data-theme="g" data-icon="arrow-left">Back</a>
+                    <a data-role="button" href='javascript:void(0);' onclick="App.router.navigate('#build?' + App.defaultOrg  , {trigger: true});" class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
+                </div>
+            </li>
+
+            <li data-orientation='centered' data-width="300">
+                <h3>Mobile App</h3>
+                <p>
+                    World Survey Kit is great for on-site surveys even if there is no internet connectivity!
+                    <br /><br />
+                    Download the Android app now
+                    <center>
+                        <img src="images/qrcode.png" /><br />
+                        <a href="http://play.google.com/store/apps/details?id=com.worldsurveykit.survey" target="_blank">
+                            <img alt="Android app on Google Play"
+                                 src="http://developer.android.com/images/brand/en_app_rgb_wo_60.png" />
+                        </a>
+                    </center>
+                    <br /><br />
+                    iPhone and Windows app coming soon.
+                </p>
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-prev' data-inline="true" data-theme="g" data-icon="arrow-left">Back</a>
+                    <a data-role="button" href='javascript:void(0);' class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
+                </div>
+            </li>
+
+            <li data-orientation='centered' data-width="300">
+                <h3>Get Building!</h3>
+                <p>
+                    After you are done taking the survey switch over to your profile and build one for yourself! Then share it with friends.
+                </p>
+                <a data-role="button" href='javascript:void(0);' data-inline="true" data-theme="g" class='tourbus-stop'>Ok</a>
+            </li>
+
+        </ol>
+
+
+
+        <div data-role="profilemenu">
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- /History Page -->
+    <div id="history" data-role="page" data-title="Survey History">
+
+
+        <div data-role="panel" id="panelHistory" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+            </ul>
+        </div>
+
+
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelHistory" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Menu</a>
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin">
+                <button class="loginBtn ui-btn-right" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+
+            </div>
+
+            <div class="main-content">
+
+                <h3 id="h1">History</h3>
+
+                <ul data-role="listview" data-inset="true" data-inline="true" id="historyList"></ul>
+
+                <div id="historyPaging" style="visibility:hidden">
+                    <div data-role="controlgroup" data-inline="true" data-type="horizontal">
+                        <a id="page-back" href="#history?1" data-role="button" data-theme="b" data-icon="arrow-l" data-iconpos="left">Back</a>
+                        <select name="page-select" id="page-select"></select>
+                        <a id="page-next" href="#history?2" data-role="button" data-theme="b" data-icon="arrow-r" data-iconpos="right">Next</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!-- /Settings Page -->
+    <div id="settings" data-role="page" data-title="Settings">
+
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="main-content">
+
+                <div class="side-content">
+                    <div data-role="wsk-nav-bar">
+                        <!--this is populated dynamically-->
+                    </div>
+                </div>
+
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <div>
+                            <b>Default Organization:</b><br />
+                            <button data-inline="true" data-theme="g" id="settingsSave" data-icon="save">Save</button>
+                            <div id="settingsList">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <div>
+                            <b>Utilities:</b><br />
+                            <a id="settingsSyncAll" data-inline="true" data-role="button" data-theme="b">Sync Data</a> <i id="syncCount"></i>
+                            <br />
+                            <a id="settingsReloadApp" data-inline="true" data-role="button" data-theme="b">Reload App</a> <i>*Note - This will reload the app. Use this if you are experiencing any issues.</i>
+                            <br />
+                            <a id="settingsReload" data-inline="true" data-role="button" data-theme="b">Reset App</a> <i>*Note - This will force the app to reset. You may lose unsaved data. Use only if you are experiencing issues.</i>
+
+                        </div>
+                    </li>
+                </ul>
+
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <div>
+                            <b>Other:</b><br />
+
+                            <div style="max-width:175px;" id="google_translate_element"></div>
+                            <a id="helpPage" data-inline="true" data-role="button" data-icon="comments-alt">Help</a> <i>Report a bug, or ask a question</i>
+
+
+                        </div>
+                    </li>
+                </ul>
+
+
+                <b><i>* You must have internet connection for the settings to be changed.</i></b>
+
+            </div>
+
+        </div>
+
+        <div data-role="profilemenu5">
+
+        </div>
+    </div>
+
+
+    <!-- /reports Page -->
+    <div id="reports" data-role="page" data-title="Reports">
+
+
+        <div data-role="panel" id="panelReports" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+                <!--<li data-theme="b">Admin Stuff</li>
+                <li ><a href="#admin">Admin</a></li>
+                <li ><a href="#test">Test</a></li>
+                <li ><a href="#coll">Storage</a></li>-->
+            </ul>
+        </div>
+
+
+        <div data-role="header" data-theme="b">
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelReports" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+                <div data-role="wsk-nav-bar">
+                    <!--this is populated dynamically-->
+                </div>
+            </div>
+
+            <div class="main-content">
+
+                <div id="reportsMain"></div>
+                <p id="report-sync"></p>
+            </div>
+
+            <div id="reportsTable"></div>
+
+        </div>
+
+        <div data-role="profilemenu3">
+
+        </div>
+
+    </div>
+
+    <!-- /go Page -->
+    <div id="go" data-role="page" data-title="Taking Survery...">
+
+
+        <div data-role="panel" id="panelGo" data-theme="a">
+            <ul class="panelGo" data-role="listview" data-theme="a"></ul>
+        </div>
+
+
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelGo" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+            <!--<h1>
+                 <a href="#home"><img src="images/aq-36.png"  /></a>
+            </h1>-->
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+
+            </div>
+
+            <div class="main-content">
+
+
+
+            </div>
+
+        </div>
+
+        <div data-role="profilemenu10">
+
+        </div>
+
+    </div>
+
+
+    <!-- /User Profile Page -->
+    <div id="profile" data-role="page" data-title="User Profiles">
+
+
+        <div data-role="panel" id="panelProfile" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+            </ul>
+        </div>
+
+
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelProfile" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+                <div data-role="admin-menu">
+                    <!--this is populated dynamically-->
+                </div>
+            </div>
+
+            <div class="main-content">
+
+                <h3 id="orgName"></h3>
+
+                <a data-theme="g" id="addUser" data-inline="true" data-icon="plus" data-role="button">Add New User</a>
+
+                <p><b>The users below are the only ones who can take the survey's you build.</b></p>
+                <p>Choose a user to edit</p>
+                <ul>
+                    <li>
+                        If you delete the user they will no longer be able to take your surveys.
+                    </li>
+                    <li>
+                        If you make them an admin they will be able to edit your survey's
+                    </li>
+                </ul>
+
+                <ul id="orgUsers" data-role="listview" data-inset="true"></ul>
+
+
+
+
+                <div data-role="popup" id="addUserPopup" style="max-width:400px;" class="ui-content ui-corner-all">
+
+                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Cancel</a>
+
+                    <div>Facebook ID <a href="http://findmyfacebookid.com" rel="external" class="ui-btn-right" target="_blank">Get ID</a></div>
+                    <input id="select-new-fbid" />
+
+                    <label for="flip-isUserAdmin">Allow the user to edit your surveys?</label>
+                    <select name="flip-isUserAdmin" id="Select1" data-role="slider" class="isOrgAdmin-New">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+
+                    <a data-role="button" id="profileAdd" data-icon="plus" data-inline="true" data-theme="g">Add</a>
+
+                </div>
+
+
+
+                <!-- Markup for These Days Friend Selector -->
+                <div id="TDFriendSelector">
+                    <div class="TDFriendSelector_dialog">
+                        <a href="#" onclick=" try { App.popOpenAddUser = false } catch (e) {}" id="TDFriendSelector_buttonClose">x</a>
+                        <div class="TDFriendSelector_form">
+                            <div class="TDFriendSelector_header">
+                                <p>Select friends to take your surveys</p>
+                            </div>
+                            <div class="TDFriendSelector_content">
+
+                                <div class="TDFriendSelector_searchContainer TDFriendSelector_clearfix">
+                                    <div class="TDFriendSelector_selectedCountContainer">
+                                        <span class="TDFriendSelector_selectedCount">0</span> friends selected
+                                        &nbsp;&nbsp;&nbsp;<a id="TDFriendSelectorClear" data-role="button" data-inline="true" class="ui-btn-right" data-mini="true">clear</a>
+                                    </div>
+
+
+                                </div>
+                                <input type="text" placeholder="Search friends" id="TDFriendSelector_searchField" />
+                                <div class="TDFriendSelector_friendsContainer"></div>
+                            </div>
+                            <div class="TDFriendSelector_footer TDFriendSelector_clearfix">
+
+                                <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+                                    <a data-mini="true" data-inline="true" data-role="button" data-icon="arrow-left" data-theme="b" href="#" id="TDFriendSelector_pagePrev"></a>
+                                    <a data-mini="true" data-inline="true" data-role="button" data-icon="arrow-right" data-theme="b" href="#" id="TDFriendSelector_pageNext"></a>
+                                    <div class="TDFriendSelector_pageNumberContainer">
+                                        &nbsp;&nbsp;&nbsp;Page <span id="TDFriendSelector_pageNumber">1</span> / <span id="TDFriendSelector_pageNumberTotal">1</span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div>
+                                    <div class="ui-block-a">
+                                        <p>
+                                            Allow the users edit your surveys:&nbsp;&nbsp;&nbsp;
+                                        </p>
+                                    </div><!-- /ui-block -->
+                                    <div class="ui-block-b">
+                                        <select name="fb-user-admin" id="fb-user-admin" data-role="slider" data-mini="true">
+                                            <option value="no">no</option>
+                                            <option value="yes">yes</option>
+                                        </select>
+                                    </div><!-- /ui-block -->
+
+                                </div><br style="clear:both" />
+                                <div>
+                                    <a data-role="button" data-theme="g" href="#" id="TDFriendSelector_buttonOK">OK</a>
+                                </div>
+
+
+                                <br />
+                                <ul data-role="listview">
+                                    <li>
+                                        <div>
+                                            <b>Don't see the person your looking for?</b><br />
+                                            <button data-mini="true" data-role="button" data-inline="true" id="addUserFBID">Add by Facebook ID</button>
+                                        </div>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+        <div data-role="profilemenu2">
+
+        </div>
+
+    </div>
+
+
+    <!-- /Build Page -->
+    <div id="build" data-role="page" data-title="Survey Builder">
+
+
+        <div data-role="panel" id="panelBuild" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+            </ul>
+        </div>
+
+
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelBuild" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+                <div data-role="admin-menu">
+                    <!--this is populated dynamically-->
+                </div>
+            </div>
+
+            <div class="main-content">
+
+                <h3 id="surveyBuilderHeading"></h3>
+
+                <a data-theme="g" id="newFile" data-inline="true" data-icon="plus" data-role="button">New Survey</a>
+                <span id="buildTour"></span>
+                <p>Choose a survey to edit / add questions / delete / publish etc...</p>
+
+                <ul data-role="listview" id="fileList" data-inset="true"></ul>
+
+
+                <div data-role="popup" id="newFilePopup" style="max-width:400px;" class="ui-content ui-corner-all">
+
+                    <h3>New Survey Name</h3>
+
+                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Cancel</a>
+
+                    <input id="newFileInput" />
+
+                    <a data-role="button" id="newFileSubmit" data-icon="plus">Add</a>
+
+                </div>
+
+            </div>
+
+            <div data-role="profilemenu">
+
+            </div>
+
+        </div>
+
+        <div data-role="profilemenu4">
+
+        </div>
+
+    </div>
+
+
+    <!-- /File Page -->
+    <div id="file" data-role="page" data-title="Editing File...">
+
+        <div data-role="panel" id="panelFile" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+            </ul>
+
+        </div>
+
+
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelFile" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+                <div data-role="admin-menu">
+                    <!--this is populated dynamically-->
+                </div>
+                <div data-role="breadcrumbs">
+
+                </div>
+            </div>
+
+            <div class="main-content">
+
+                <h3 id="fileEditorHeading">Survey Editor - </h3>
+
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <div>
+                            <div class="ui-block-a">
+                                <div data-role="controlgroup" data-type="horizontal">
+                                    <!--<a data-role="button" data-icon="back" id="fileBack">Back</a>-->
+                                    <a data-role="button" data-icon="refresh" id="filePublish" data-theme="g">Publish</a>
+                                    <a data-role="button" data-icon="user" id="invite">Invite Users</a>
+                                    <a data-role="button" data-icon="trash" id="deleteFile">Delete</a>
+                                </div>
+                            </div>
+                            <div class="ui-block-b" style="float:right">
+                                <label for="flip-survey-security"><b>Public Survey</b></label>
+                                <select name="flip-survey-security" id="flip-survey-security" data-role="slider">
+                                    <option value="private">no</option>
+                                    <option value="public">yes</option>
+                                </select>
+                            </div>
+
+                            <div style="clear:both">
+                                <a data-theme="b" id="newQuestion" data-inline="true" data-icon="plus" data-role="button">New Question</a>
+                                <span id="lastPublished"></span>
+                                <ol data-role="listview" id="questionList" data-inset="true"></ol>
+                            </div>
+
+
+
+                            <div data-role="popup" id="newQuestionPopup" style="max-width:400px;" class="ui-content ui-corner-all">
+
+                                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Cancel</a>
+
+                                <h3>Select a question format:</h3>
+
+                                <select id="newQuestionType">
+                                    <option value="SingleAnswer">Single Answer</option>
+                                    <option value="MultipleChoice">Multiple Choice</option>
+                                    <option value="OpenEnded">Open Ended</option>
+                                    <option value="Gps">Gps</option>
+                                    <!--<option value="Camera">Camera</option>-->
+                                    <option value="Signature">Signature</option>
+                                </select>
+
+                                <a data-role="button" id="addNewQuestion" data-icon="plus">Add</a>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- /Question Page -->
+    <div id="question" data-role="page" data-title="Editing Question...">
+
+        <div data-role="panel" id="panelQuestion" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+            </ul>
+        </div>
+
+
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelQuestion" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+                <div data-role="admin-menu">
+                    <!--this is populated dynamically-->
+                </div>
+                <div data-role="breadcrumbs">
+
+                </div>
+            </div>
+
+            <div class="main-content">
+
+
+                <h3>Question Page</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- /Admin Page -->
+    <div id="admin" data-role="page" data-title="Admin Portal - Choose an organization">
+
+        <!-- /panel -->
+        <div data-role="panel" id="panelOrg" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- /header -->
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelOrg" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+
+            </div>
+
+            <div class="main-content">
+
+                <h2>Admin Portal</h2>
+
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <div>
+                            <h3>Manage Organizations</h3>
+                            <div class="orgCollapse" data-role="collapsible" data-theme="b">
+                                <h4> Add a new organization:</h4>
+                                <p>
+                                    <input id="new-org" data-inline="true" placeholder="[Put New Organization Name here]" autofocus />
+                                    <button class="addOrg" data-inline="true" data-theme="b">Add Organization</button>
+
+                                </p>
+                            </div>
+                            <div>
+                                <b>Choose an organization to add users, build survey's and view reports:</b>
+                            </div>
+                            <ul id="orgList" data-role="listview" data-split-icon="delete" data-inset="true">
+
+                                <li>
+                                    <img src="images/loadingLg.gif" />
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <div id="manageUsers">
+
+                </div>
+
+
+            </div>
+
+        </div><!-- /content -->
+
+    </div>
+
+    <!-- /Collection Page -->
+    <div id="coll" data-role="page" data-title="Collection">
+
+        <!-- /panel -->
+        <div data-role="panel" id="panelCollection" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- /header -->
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelCollection" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+            <h1>
+                Collections
+            </h1>
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+
+            </div>
+
+            <div class="main-content">
+
+                <ul data-role="listview">
+                    <li>
+                        <div>
+                            <a onclick="window.location.reload();" data-role="button" data-inline="true">Refresh</a>
+                            <div id="collWrapper"></div>
+
+                        </div>
+                    </li>
+                </ul>
+
+
+
+            </div>
+
+        </div><!-- /content -->
+
+    </div>
+
+    <!-- /Error Page -->
+    <div id="error" data-role="page" data-title="An error has occured... ">
+
+        <!-- /panel -->
+        <div data-role="panel" id="panelError" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- /header -->
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelError" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+            <h1>
+                Error
+            </h1>
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+
+            </div>
+
+            <div class="main-content">
+
+                <h3><a data-role="button" data-icon="bolt" data-iconpos="notext" data-theme="c" data-inline="true"></a>An error has occured</h3>
+
+                <a href="#home" data-role="button" data-inline="true" data-theme="b" data-icon="arror-left">Back to Home page</a>
+
+
+            </div>
+
+        </div><!-- /content -->
+
+    </div>
+
+    <!-- /Import Page -->
+    <div id="importer" data-role="page" data-title="Import Data...">
+
+        <!-- /panel -->
+        <div data-role="panel" id="panelImport" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- /header -->
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelImport" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+
+            </div>
+
+            <div class="main-content">
+                <h2>Import data</h2>
+
+                <div id="handson-wrapper" style="-webkit-text-shadow: none; text-shadow: none; display: none;">
+                    <p>Copy and paste data into the table (up to 100 rows). Click on a cell to see proper formatting.</p>
+
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <input data-inline="true" id="import-fileName" placeholder="Type Survey Name here, row number will be appended when imported " />
+
+                        </div>
+                        <div class="ui-block-b">
+                            <button data-inline="true" data-theme="b" id="import-button">Import</button>
+                        </div>
+                    </fieldset>
+
+                    <div id="handson-table" style="height:400px; overflow: scroll;">
+
+                    </div>
+                    <div id="tooltipdiv" style="font-style:italic; color:white; font-weight:bold"></div>
+                    <div style="clear:both"></div>
+                    <div data-role="popup" id="importer-results-popup" class="ui-content" style="max-width:720px" data-dismissible="false">
+                        <p>
+                            <h3>Import Results:</h3>
+                        <p>
+                            <i>If there are any results in red below that means they did not successfully import. Check your formatting and make sure no extra spacing was added.</i>
+                        </p>
+                        <a data-role="button" onclick="window.location.reload()" data-inline="true" id="import-more" data-theme="b">Import More</a><a data-role="button" data-theme="b" data-inline="true" data-rel="back" id="import-view-report">Back to Reports</a>
+                        <b id="importSuccess"></b><br />
+                        <b id="importFail"></b><br />
+                        
+                        <p id="importer-results">
+
+                        </p>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div><!-- /content -->
+
+    </div>
+
+    <!-- /Tutorial Page -->
+    <div id="tutorial" data-role="page" data-title="Tutorial">
+
+        <!-- /panel -->
+        <div data-role="panel" id="panelTutorial" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- /header -->
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#panelTutorial" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+
+            </div>
+
+            <div class="main-content">
+
+                <center>
+                    <button id="tut-tour" data-inline="true" data-theme="g">Take the tour</button>
+                </center>
+                <br /><br />
+                <center>
+                    <div style="float:left">
+                        <h3>World Survey Kit Demo Video</h3>
+                        <img style="cursor:pointer" onmouseover="$(this).css('border' , '6px solid gray')" onmouseout="$(this).css('border' , 'none')" onclick="$('#popupVideo').popup('open')" src="images/demo/screen-gps.png" />
+                    </div>
+                    <div>
+                        <h3>How to import data in bulk from an existing system</h3>
+                        <img style="cursor:pointer" onmouseover="$(this).css('border' , '6px solid gray')" onmouseout="$(this).css('border' , 'none')" onclick="$('#popupVideo2').popup('open')" src="images/demo/screen-sidemenu.png" />
+                    </div>
+                    <div style="clear:both"></div>
+
+
+
+
+
+                    <div data-role="popup" id="popupVideo" data-overlay-theme="a" data-theme="d" data-tolerance="15,15" class="ui-content">
+                        <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                        <iframe seamless src="http://youtube.com/embed/RxK-kTe_PJs" ></iframe>
+                    </div>
+
+                    <div data-role="popup" id="popupVideo2" data-overlay-theme="a" data-theme="d" data-tolerance="15,15" class="ui-content">
+                        <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                        <iframe seamless src="http://youtube.com/embed/Pd1W0ZjhzIw" ></iframe>
+                    </div>
+                </center>
+
+
+            </div>
+
+        </div>
+
+        <div data-role="profilemenu6">
+
+        </div>
+
+    </div>
+
+
+    <!-- /Test Page -->
+    <div id="test" data-role="page" data-title="Test ">
+
+        <!-- /panel -->
+        <div data-role="panel" id="mypanel" data-theme="a">
+            <ul data-role="listview" data-theme="a">
+                <li data-icon="home"><a href="#home">Home</a></li>
+                <li data-icon="off"><a class="logoutBtn">Logoff</a></li>
+                <li data-icon="cog"><a href="#settings">Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- /header -->
+        <div data-role="header" data-theme="b">
+
+            <div style="float:left; padding-left: 2px;">
+                <a href="#mypanel" data-role="button" data-icon="reorder" data-inline="true" data-iconpos="notext" class="ui-square-btn"></a>
+                <a onclick="window.history.back()" data-role="button" data-icon="arrow-left" data-inline="true" data-iconpos="notext" class="ui-square-btn ui-icon-nodisc" data-iconshadow="false">Back</a>
+            </div>
+            <div data-role="fblogin" style="float:right; padding-right: 2px">
+                <button class="loginBtn" data-mini="true" data-corners="false">
+                    <img src="images/facebook_login_sm.png" style="width:18px;height:18px" />&nbsp;&nbsp; Login
+                </button>
+            </div>
+
+            <div style="clear:both"></div>
+
+        </div>
+
+        <div data-role="content">
+
+            <div class="side-content">
+                <ul data-role="listview" data-theme="c">
+                    <li>side menu </li>
+                    <li>goes here</li>
+                    <li><span class="state"></span></li>
+                </ul>
+            </div>
+
+            <div class="main-content">
+
+
+
+                <a id="apiLink" data-role="button" data-inline="true" data-="false">Api help</a>
+
+                <a data-role="button" data-inline="true" href="#admin">Organization / Admin Portal</a>
+
+                <a href="#coll" data-role="button" data-inline="true">LocalStorage</a>
+
+                <a href="#isAuth" id="isAuth" data-role="button" data-inline="true">Is Authorized to Use App ?</a>
+
+                <h2>Add an item to the list below to test offline sync (<b style="color:red">red=local</b>, <b style="color:green">green=sycn'd</b>):</h2>
+
+                <div id="menuWrapper">
+                    <div data-role="controlgroup" data-type="horizontal">
+                        <a id="add" data-role="button">Add Item</a>
+
+                        <a id="reload" data-role="button">Reload</a>
+
+                        <a id="push" data-role="button">Push dirty</a>
+
+                        <a id="csrf" data-role="button">Auth</a>
+
+                        <a id="getfb" onclick="alert(App.user.get('access_token'));" data-role="button">Get FB Token</a>
+                    </div>
+
+
+                    <p id="fbdata">
+
+                    </p>
+
+
+                    <ul id="menu" data-role="listview" data-inset="true"></ul>
+
+                    <ul id="local" data-role="listview" data-inset="true"></ul>
+
+
+                </div>
+
+
+                <div class="gps-data"></div>
+
+            </div>
+
+        </div><!-- /content -->
+
+        </div>
+
+        <form>
+            <input name="__ApiToken" id="__ApiToken" type="hidden" value="saO1zbN6K1l9WjQiDKpZ" />
+        </form>
+
+        <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+        <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+        <script src="js/default.js"></script>
+        <script src="js/libs/MobileServices.js"></script>
+        <script src="https://wskauth.azure-mobile.net/client/MobileServices.Web-1.0.3.min.js"></script>
+
+        <script src="js/libs/require-2.1.1.js" data-main="js/main"></script>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-45252529-1', 'worldsurveykit.com');
+            ga('send', 'pageview');
+
+        </script>
+
+
+</body>
+</html>
