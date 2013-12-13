@@ -3058,8 +3058,16 @@ jQuery.event = {
 					event.data = handleObj.data;
 					event.handleObj = handleObj;
 
-					ret = ( (jQuery.event.special[ handleObj.origType ] || {}).handle || handleObj.handler )
-							.apply( matched.elem, args );
+				    // nick added try... for some reason an error was being thrown 0x800a01b6 
+					//  - JavaScript runtime error: Object doesn't support property or method 'apply'
+				    try{
+				        ret = ((jQuery.event.special[handleObj.origType] || {}).handle || handleObj.handler)
+                                .apply(matched.elem, args);
+				    }
+				    catch (e) {
+				        ret = undefined;
+				    }
+
 
 					if ( ret !== undefined ) {
 						event.result = ret;

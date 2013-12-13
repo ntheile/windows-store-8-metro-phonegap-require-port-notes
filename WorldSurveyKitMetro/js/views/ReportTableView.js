@@ -77,8 +77,11 @@ define(["jquery", "backbone", "models/Models", "text!templates/ReportTableTempla
                     var html = "<th>" + model.get("order") + "). " + model.get("question") + "</th>";
                     ////console.log("html");
                     ////console.log(html);
-                    $("#reportTableHeader").append(html);
-                    $("#reportTableFooter").append(html);
+                    MSApp.execUnsafeLocalFunction(function () {
+                        $("#reportTableHeader").append(html);
+                        $("#reportTableFooter").append(html);
+                    });
+                    
                 });
 
 
@@ -112,16 +115,22 @@ define(["jquery", "backbone", "models/Models", "text!templates/ReportTableTempla
                     //}
                     //// if it's somebody elses file then append ?edit to the end of the route
                     //else {
-                    $("#reportTableBody").append(
-                        "<tr id='reportRow" + fileInstId + "'>" +
+
+                   
+
+                    var htmz = "<tr id='reportRow" + fileInstId + "'>" +
                             "<td><a class='editTableRow' data-file='" + fileInstId + "' data-role='button' data-theme='b' data-mini='true' data-corners='false' data-inline='true' href='#go?file" + fileInstId + "?q-200?edit'>Edit</a></td>" +
                             "<td>" + fileInstModel.get("id") + "</td>" +
                             "<td>" + fileInstModel.get("name") + "</td>" +
                             "<td>" + userObj.name + "</td>" +
                              "<td>" + userObj.fbUserId + "</td>" +
                             "<td>" + fileInstModel.get("updated_at") + "</td>" +
-                        "</tr>"
-                    );
+                        "</tr>";
+
+                        MSApp.execUnsafeLocalFunction(function () {
+                            $("#reportTableBody").append(htmz);
+                        });
+                    
                     //}
 
 
@@ -270,8 +279,8 @@ define(["jquery", "backbone", "models/Models", "text!templates/ReportTableTempla
             }
             // if not then fetch it from the server
             else {
-                e.preventDefault();
                 App.router.navigate(href, { trigger: true, replace: true });
+                e.preventDefault();
             }
 
 

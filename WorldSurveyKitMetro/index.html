@@ -206,20 +206,14 @@
             <br /><br />
         </div>
 
-        <div data-role="footer" data-theme="d" class="hide-mobile">
-            <br />
-            <center>
-                <h2>See how the journey began</h2>
-                <iframe class="hide-mobile" width="853" height="480" src="ms-appx-web:///google.com" frameborder="0" sandbox="allow-top-navigation"></iframe>
-            </center>
-            <br /><br />
-        </div>
-
         <div data-role="footer" data-theme="a" data-position="fixed">
             <ul style="list-style:none">
-                <li>
+                <!--<li>
                     World Survey Kit &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp; Contact us <a href="worldsurveykit@outlook.com">worldsurveykit@outlook.com</a>
                     &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp; A Nick Theile Production
+                </li>-->
+                <li>
+                    World Survey Kit &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp; A Nick Theile Production
                 </li>
             </ul>
         </div>
@@ -397,7 +391,7 @@
 
                 <div data-role="controlgroup" data-type="horizontal">
                     <a data-role="button" href='javascript:void(0);' class='tourbus-prev' data-inline="true" data-theme="g" data-icon="arrow-left">Back</a>
-                    <a data-role="button" href='javascript:void(0);' onclick='$(".profileMenuPopup").popup("open", { positionTo: "#profilePos" });' class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
+                    <a data-role="button" href='javascript:void(0);' onclick='try { $(".profileMenuPopup").popup("open", { positionTo: "#profilePos" }); } catch (e) { }' class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
                 </div>
             </li>
 
@@ -460,7 +454,7 @@
 
                 <div data-role="controlgroup" data-type="horizontal">
                     <a data-role="button" href='javascript:void(0);' class='tourbus-prev' data-inline="true" data-theme="g" data-icon="arrow-left">Back</a>
-                    <a data-role="button" href='javascript:void(0);' onclick='$(".profileMenuPopup").popup("open", { positionTo: "#profilePos" });' class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
+                    <a data-role="button" href='javascript:void(0);' onclick='try { $(".profileMenuPopup").popup("open", { positionTo: "#profilePos" }); } catch (e) { }' class='tourbus-next' data-inline="true" data-theme="g" data-icon="arrow-right" data-iconpos="right">Next</a>
                 </div>
             </li>
 
@@ -601,6 +595,8 @@
                         <!--this is populated dynamically-->
                     </div>
                 </div>
+
+                <!--<a data-role="button" data-inline="true" href="#coll">view localStorage</a>-->
 
                 <ul data-role="listview" data-inset="true">
                     <li>
@@ -1444,7 +1440,7 @@
                     <button id="tut-tour" data-inline="true" data-theme="g">Take the tour</button>
                 </center>
                 <br /><br />
-                <center>
+                <!--<center>
                     <div style="float:left">
                         <h3>World Survey Kit Demo Video</h3>
                         <img style="cursor:pointer" onmouseover="$(this).css('border' , '6px solid gray')" onmouseout="$(this).css('border' , 'none')" onclick="$('#popupVideo').popup('open')" src="images/demo/screen-gps.png" />
@@ -1461,14 +1457,14 @@
 
                     <div data-role="popup" id="popupVideo" data-overlay-theme="a" data-theme="d" data-tolerance="15,15" class="ui-content">
                         <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                        <iframe seamless src="http://youtube.com/embed/RxK-kTe_PJs" ></iframe>
+                        <iframe seamless src="https://youtube.com/embed/RxK-kTe_PJs" ></iframe>
                     </div>
 
                     <div data-role="popup" id="popupVideo2" data-overlay-theme="a" data-theme="d" data-tolerance="15,15" class="ui-content">
                         <a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                        <iframe seamless src="http://youtube.com/embed/Pd1W0ZjhzIw" ></iframe>
+                        <iframe seamless src="https://youtube.com/embed/Pd1W0ZjhzIw" ></iframe>
                     </div>
-                </center>
+                </center>-->
 
 
             </div>
@@ -1576,6 +1572,7 @@
 
         <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
         <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+        <script src="//Microsoft.WinJS.2.0/js/wwaapp.js"></script>
         <script src="js/default.js"></script>
         <script src="js/libs/MobileServices.js"></script>
         <script src="https://wskauth.azure-mobile.net/client/MobileServices.Web-1.0.3.min.js"></script>

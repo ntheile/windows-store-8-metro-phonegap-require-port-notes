@@ -346,7 +346,7 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
                             //console.log("first load ever");
                             // wait for data to load since it has never been cached
                             $("#home-load-msg").html("Please wait, loading user settings for the first time...");
-                            
+
                             $.wait(2000).then(function () {
                                 // fetch local data
                                 localStorage.loaded = true;
@@ -376,7 +376,7 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
                                 }
 
                             });
-                            
+
                         }
                     }, function () {
                         //error
@@ -387,7 +387,7 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
 
                         // TODO maybe present a refresh button if files fail to load
                     });
-                }
+                };
                 
 
                 //
@@ -1166,7 +1166,7 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
                             '</ul>' +
                         '</div>'
                     );
-                    //$("#build").trigger("create");
+                    $("#build").trigger("create");
                     //$(".profileMenuPopup4").trigger("create");
                 }
                 catch (e) { }

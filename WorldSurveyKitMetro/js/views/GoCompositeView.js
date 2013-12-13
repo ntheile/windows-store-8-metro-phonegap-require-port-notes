@@ -1,4 +1,4 @@
-// Go Composite  View
+﻿// Go Composite  View
 // ==================
 
 ///
@@ -7,112 +7,116 @@
 define(["jquery", "backbone", "models/Models", "views/GoOpenEndedView", "views/GoGpsView", "views/GoOptionsView", "views/GoSignatureView"],
     function ($, Backbone, Models, GoOpenEndedView, GoGpsView, GoOptionsView, GoSignatureView) {
 
-    var GoCompositeView = Backbone.View.extend({
+        var GoCompositeView = Backbone.View.extend({
 
-        el: "#go .main-content",
+            el: "#go .main-content",
 
-        fileId: "",
+            fileId: "",
 
-        questionId: "",
+            questionId: "",
 
-        fileInstanceId: "",
+            fileInstanceId: "",
 
-        fileInstColl: null,
+            fileInstColl: null,
 
-        responseColl: null,
+            responseColl: null,
 
-        edit: "",
+            edit: "",
 
-        events: {
-           
-        },
+            events: {
 
-        // The View Constructor
-        initialize: function() {
+            },
 
-            //console.log("====> GoCompositeView - init()");
+            // The View Constructor
+            initialize: function () {
 
-            try {
-                // Profile menu code
-                $(".profiledd").off("click");
-                $(".profiledd").on("click", function () {
-                    $(".profileMenuPopup10").popup('open', { positionTo: '#profilePos' });
-                });
-                var strOrg = "";
-                _.each(App.myOrgs, function (org) {
-                    strOrg = strOrg + "<li><a onclick='App.reloadNewOrg(" + org.Orgs.id + ")'>" + org.Orgs.orgName + "</a></li>";
+                console.log("====> GoCompositeView - init()");
 
-                });
-                $("div[data-role='profilemenu10']").html("");
-                $("div[data-role='profilemenu10']").append(
-                    '<div data-role="popup" class="profileMenuPopup10" data-theme="d">' +
-                        '<ul data-role="listview" data-inset="true" style="min-width:250px;" data-theme="d">' +
-                            '<li data-role="divider" data-theme="g">Switch to Friends Survey:</li>' + strOrg +
-                        '</ul>' +
-                    '</div>'
-                );
-                $("#build").trigger("create");
-                $(".profileMenuPopup10").trigger("create");
-            }
-            catch (e) { }
+                try {
+                    // Profile menu code
+                    $(".profiledd").off("click");
+                    $(".profiledd").on("click", function () {
+                        $(".profileMenuPopup10").popup('open', { positionTo: '#profilePos' });
+                    });
+                    var strOrg = "";
+                    _.each(App.myOrgs, function (org) {
+                        strOrg = strOrg + "<li><a onclick='App.reloadNewOrg(" + org.Orgs.id + ")'>" + org.Orgs.orgName + "</a></li>";
 
-        },
+                    });
+                    $("div[data-role='profilemenu10']").html("");
+                    $("div[data-role='profilemenu10']").append(
+                        '<div data-role="popup" class="profileMenuPopup10" data-theme="d">' +
+                            '<ul data-role="listview" data-inset="true" style="min-width:250px;" data-theme="d">' +
+                                '<li data-role="divider" data-theme="g">Switch to Friends Survey:</li>' + strOrg +
+                            '</ul>' +
+                        '</div>'
+                    );
+                    $("#build").trigger("create");
+                    $(".profileMenuPopup10").trigger("create");
+                }
+                catch (e) { }
 
-        // renders the question content
-        render: function () {
-            
-            //console.log("====> GoCompositeView - render()");
-            
-            var self = this;
+            },
 
-            // fetch local to update any out of sync id's
-            App.localFileLoad();
+            // renders the question content
+            render: function () {
+
+                console.log("====> GoCompositeView - render()");
+
+                var self = this;
+
+                // fetch local to update any out of sync id's
+                App.localFileLoad();
 
 
-            ///
-            /// get the data from the collection
-            ///
+                ///
+                /// get the data from the collection
+                ///
 
-            // get the Question model
-            var model = App.uQuestionCollection.where({ sid: parseInt(App.goCompositeView.questionId) });
-            model = model[0];
-            var type = model.get("type");
+                // get the Question model
+                var model = App.uQuestionCollection.where({ sid: parseInt(App.goCompositeView.questionId) });
+                model = model[0];
+                var type = model.get("type");
 
-            // get the fileId
-            this.fileId = parseInt(model.get("fileId"));
+                // get the fileId
+                this.fileId = parseInt(model.get("fileId"));
 
-            // get file name
-            var fileName = App.uFileCollection.where({ sid: this.fileId });
-            fileName = fileName[0].get("fileName");
-            var fileInstanceName;
-            // get file instance name, this can be referenced by sid of id
-            if (App.isClientId(this.fileInstanceId)) { // client id
-                fileInstanceName = self.fileInstColl.where({ id: this.fileInstanceId });
-            }
-            else { // server id
-                fileInstanceName = self.fileInstColl.where({ sid: parseInt(this.fileInstanceId) });
-            }
+                // get file name
+                var fileName = App.uFileCollection.where({ sid: this.fileId });
+                fileName = fileName[0].get("fileName");
+                var fileInstanceName;
+                // get file instance name, this can be referenced by sid of id
+                if (App.isClientId(this.fileInstanceId)) { // client id
+                    fileInstanceName = self.fileInstColl.where({ id: this.fileInstanceId });
+                }
+                else { // server id
+                    fileInstanceName = self.fileInstColl.where({ sid: parseInt(this.fileInstanceId) });
+                    // if its an empty array then get the id since we are getting server model not backbone offline
+                    if (fileInstanceName.length == 0){
+                        fileInstanceName = self.fileInstColl.where({ id: parseInt(this.fileInstanceId) });
+                    }
+                }
 
-            fileInstanceName = fileInstanceName[0].get("name");
+                fileInstanceName = fileInstanceName[0].get("name");
 
-            // get the number of questions in the file
-            var questionCount = App.uQuestionCollection.where({ fileId: this.fileId }).length;
+                // get the number of questions in the file
+                var questionCount = App.uQuestionCollection.where({ fileId: this.fileId }).length;
 
-            // get the next question id and back one question id
-            var next = App.uQuestionCollection.where({ order: (parseInt(model.get("order"))) + 1, fileId: this.fileId });
-            var back = App.uQuestionCollection.where({ order: (parseInt(model.get("order"))) - 1, fileId: this.fileId });
-            try { next = next[0].get("sid"); } catch (e) { next = null; }
-            try { back = back[0].get("sid"); } catch (e) { back = null; }
+                // get the next question id and back one question id
+                var next = App.uQuestionCollection.where({ order: (parseInt(model.get("order"))) + 1, fileId: this.fileId });
+                var back = App.uQuestionCollection.where({ order: (parseInt(model.get("order"))) - 1, fileId: this.fileId });
+                try { next = next[0].get("sid"); } catch (e) { next = null; }
+                try { back = back[0].get("sid"); } catch (e) { back = null; }
 
-            // set the data we collected in the model to pass into the sub-views
-            model.set({ back: back, next: next, fileInstanceId: App.goCompositeView.fileInstanceId, fileName: fileName, fileInstanceName: fileInstanceName });
-            //console.log("QuestionSkeletal Model V");
-            //console.log(model);
+                // set the data we collected in the model to pass into the sub-views
+                model.set({ back: back, next: next, fileInstanceId: App.goCompositeView.fileInstanceId, fileName: fileName, fileInstanceName: fileInstanceName });
+                console.log("QuestionSkeletal Model V");
+                console.log(model);
 
-            // render the side panel
-            App.goCompositeView.renderPanel();
+                // render the side panel
+                App.goCompositeView.renderPanel();
 
-         
+
                 // choose the view
                 if (type == "SingleAnswer" || type == "MultipleChoice") {
 
@@ -124,7 +128,7 @@ define(["jquery", "backbone", "models/Models", "views/GoOpenEndedView", "views/G
                         App.goOptionsView.edit = self.edit;
                         App.goOptionsView.render(model, questionCount);
                     }
-                    // existing QOptionAnswerView
+                        // existing QOptionAnswerView
                     else {
                         App.goOptionsView.fileInstColl = self.fileInstColl;
                         App.goOptionsView.responseColl = self.responseColl;
@@ -143,7 +147,7 @@ define(["jquery", "backbone", "models/Models", "views/GoOpenEndedView", "views/G
                         App.goOpenEndedView.edit = self.edit;
                         App.goOpenEndedView.render(model, questionCount);
                     }
-                    // existing GoOpenEndedView
+                        // existing GoOpenEndedView
                     else {
                         App.goOpenEndedView.fileInstColl = self.fileInstColl;
                         App.goOpenEndedView.responseColl = self.responseColl;
@@ -162,7 +166,7 @@ define(["jquery", "backbone", "models/Models", "views/GoOpenEndedView", "views/G
                         App.goGpsView.edit = self.edit;
                         App.goGpsView.render(model, questionCount);
                     }
-                    // existing GoGpsView
+                        // existing GoGpsView
                     else {
                         App.goGpsView.fileInstColl = self.fileInstColl;
                         App.goGpsView.responseColl = self.responseColl;
@@ -208,105 +212,105 @@ define(["jquery", "backbone", "models/Models", "views/GoOpenEndedView", "views/G
                     }
 
                 }
-            
-               
-        },
-
-        // renders the slider panel
-        renderPanel: function () {
-
-            var self = this;
-
-            var fileId = App.goCompositeView.fileId;
-            var questionId = App.goCompositeView.questionId;
-            var fileInstanceId = App.goCompositeView.fileInstanceId;
 
 
-            // show the side panel
-            $(".panelGo").html("");
-            $(".panelGo").append(
-                '<li><a href="#home" >Home</a></li>' +
-                '<li data-icon="off"><a class="logoutBtn">Logoff</a></li>' +
-                '<li data-icon="cog"><a href="#settings">Settings</a></li>' +
-                '<li data-theme="b">Questions</li>'
-            );
+            },
+
+            // renders the slider panel
+            renderPanel: function () {
+
+                var self = this;
+
+                var fileId = App.goCompositeView.fileId;
+                var questionId = App.goCompositeView.questionId;
+                var fileInstanceId = App.goCompositeView.fileInstanceId;
 
 
-            _.each(App.uQuestionCollection.where({ fileId: fileId }), function (model) {
+                // show the side panel
+                $(".panelGo").html("");
+                $(".panelGo").append(
+                    '<li><a href="#home" >Home</a></li>' +
+                    '<li data-icon="off"><a class="logoutBtn">Logoff</a></li>' +
+                    '<li data-icon="cog"><a href="#settings">Settings</a></li>' +
+                    '<li data-theme="b">Questions</li>'
+                );
 
-                ////console.log(model.get("sid"));
 
-                if ( parseInt(questionId) != parseInt(model.get("sid")) ) {
-                    $(".panelGo").append(
-                        '<li><a onclick="$(\'#panelGo\').panel(\'close\')" href="#go?file' +
-                        fileInstanceId + '?q' + model.get("sid") + self.edit + '">' + model.get("order") + ').' + model.get("question") + '</a></li>'
-                     );
-                }
-                else {
-                    $(".panelGo").append(  
-                        '<li data-theme="d" data-icon="false"><a onclick="$(\'#panelGo\').panel(\'close\')" href="#go?file' +
-                         fileInstanceId + '?q' + model.get("sid") + self.edit + '">' + model.get("order") + ').' + model.get("question") + '</a></li>'
-                    );
-                }
+                _.each(App.uQuestionCollection.where({ fileId: fileId }), function (model) {
+
+                    //console.log(model.get("sid"));
+
+                    if (parseInt(questionId) != parseInt(model.get("sid"))) {
+                        $(".panelGo").append(
+                            '<li><a onclick="$(\'#panelGo\').panel(\'close\')" href="#go?file' +
+                            fileInstanceId + '?q' + model.get("sid") + self.edit + '">' + model.get("order") + ').' + model.get("question") + '</a></li>'
+                         );
+                    }
+                    else {
+                        $(".panelGo").append(
+                            '<li data-theme="d" data-icon="false"><a onclick="$(\'#panelGo\').panel(\'close\')" href="#go?file' +
+                             fileInstanceId + '?q' + model.get("sid") + self.edit + '">' + model.get("order") + ').' + model.get("question") + '</a></li>'
+                        );
+                    }
+
+                    $(".panelGo").listview("refresh");
+
+                });
+
+                // make a delete survey button
+
+                $(".panelGo").append(
+                   '<li data-icon="trash"><a class="delete-survey">Delete Survey</a></li>'
+                );
 
                 $(".panelGo").listview("refresh");
-                
-            });
 
-            // make a delete survey button
+                // wire up delete button
+                $(".delete-survey").off("click");
+                $(".delete-survey").on("click", { self: this }, this.deleteSurvey_ONCLICK);
 
-            $(".panelGo").append(
-               '<li data-icon="trash"><a class="delete-survey">Delete Survey</a></li>'
-            );
 
-            $(".panelGo").listview("refresh");
+            },
 
-            // wire up delete button
-            $(".delete-survey").off("click");
-            $(".delete-survey").on("click", { self: this }, this.deleteSurvey_ONCLICK );
-            
-           
-        },
-
-        deleteSurvey_ONCLICK: function (e) {
+            deleteSurvey_ONCLICK: function (e) {
 
 
 
-            var self = e.data.self;
+                var self = e.data.self;
 
-            var fileInstanceId = App.goCompositeView.fileInstanceId;
+                var fileInstanceId = App.goCompositeView.fileInstanceId;
 
-            // alert("deleting survey: " + fileInstanceId);
-            var model;
-            
-            var answer = confirm("Are you sure you want to delete this survey?");
-            if (answer) {
-                // offline delete
-                if (App.isClientId(fileInstanceId)) {
-                    model = self.fileInstColl.where({ id: fileInstanceId });
-                }
-                    // online delete
-                else {
-                    model = self.fileInstColl.where({ sid: parseInt(fileInstanceId) });
-                }
+                // alert("deleting survey: " + fileInstanceId);
+                var model;
 
-                model[0].destroy({
-                    success: function (model, response) {
-                        try {
-                            self.fileInstColl.storage.sync.push();
-                        }
-                        catch (e) { }
-                        App.router.navigate("home", { trigger: true });
+                var answer = confirm("Are you sure you want to delete this survey?");
+                if (answer) {
+                    // offline delete
+                    if (App.isClientId(fileInstanceId)) {
+                        model = self.fileInstColl.where({ id: fileInstanceId });
                     }
-                });
+                        // online delete
+                    else {
+                        model = self.fileInstColl.where({ sid: parseInt(fileInstanceId) });
+                    }
+
+                    model[0].destroy({
+                        success: function (model, response) {
+                            try {
+                                self.fileInstColl.storage.sync.push();
+                            }
+                            catch (e) { }
+                            App.router.navigate("home", { trigger: true });
+                        }
+                    });
+                }
+
+
             }
 
 
-        }
+        });
 
+        return GoCompositeView;
 
     });
-
-    return GoCompositeView;
-
-});
