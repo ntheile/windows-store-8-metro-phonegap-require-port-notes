@@ -1,3 +1,13 @@
+World Survey Kit - For Windows 8 
+================================
+I had to change a number of things in my code for my PhoneGap build app to work in a Windows Store environment. Unfortunatley it does not just work out of the box (come on msft :( ).
+Below are some of the issues I ran into:
+
+1. jQuery - special version (jquery-1.8.0-windows8-ready.js)
+2. iFrames
+3. Facebook Authenication with the FB Javascript SDK
+
+
 To make Facebook Authentication work in a PhoneGap Windows 8 Store app
 ------------------------------------------------------------------------
 
@@ -19,10 +29,10 @@ To make Facebook Authentication work in a PhoneGap Windows 8 Store app
 ```
 
 
-Things I had to modify
------------------------
+Other things I had to modify
+----------------------------
 
-* When in doubt and you get a javascript exception try wrapping your code in this call:
+* When in doubt and you get a javascript exception while debuggin try wrapping your code in this call:
 ```javascript
 	MSApp.execUnsafeLocalFunction(function () {
 		// your code
@@ -31,7 +41,7 @@ Things I had to modify
 
 * When using jquery append, sometimes you need to sanitize your html with this code: `.append(toStaticHTML("<br/>stuff"));`
 
-* Changed getting data from facebook by passing in the access token and avoided using the fb js sdk. Changed FB.api(/me) to:
+* Changed getting data from facebook by passing in the access token and avoided using the fb js sdk. Changed FB.api(/me) code to:
 ```javascript
 
 	$.get('https://graph.facebook.com/' + fid + "?access_token=" + YOUR_TOKEN, function (r) {
@@ -56,7 +66,7 @@ Things I had to modify
 
 ```
 
-* I had to remove all the iframes in the application. I read there is a workaround online, but did not bother to test, I simply removed the youtube iframes.
+* I had to remove all the iframes in the application. I read there is a workaround online, but did not bother to implement, I simply removed the youtube iframes.
 
 * Removed the export to csv functionality since it has to do a full page post back to a web page on a different domain, there is a possible workaround I did not 
 investigate yet.

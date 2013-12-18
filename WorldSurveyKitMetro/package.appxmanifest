@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="a8a27638-2b56-4682-9ccf-a43879af7a01" Version="1.0.0.0" Publisher="CN=nick" />
+  <Identity Name="45540NickTheile.WorldSurveyKit" Version="1.1.0.9" Publisher="CN=79902CF8-1BB0-4FB7-AC85-CC380B2CEFF3" />
   <Properties>
-    <DisplayName>WorldSurveyKitMetro</DisplayName>
-    <PublisherDisplayName>nick</PublisherDisplayName>
-    <Logo>images\icons\xhdpi.png</Logo>
+    <DisplayName>World Survey Kit</DisplayName>
+    <PublisherDisplayName>Nick Theile</PublisherDisplayName>
+    <Logo>images\icons\store50x50.png</Logo>
   </Properties>
   <Prerequisites>
     <OSMinVersion>6.3.0</OSMinVersion>
@@ -15,8 +15,8 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="index.html">
-      <m2:VisualElements DisplayName="WorldSurveyKitMetro" Description="WorldSurveyKitMetro" ForegroundText="light" BackgroundColor="#464646" Square150x150Logo="images\icons\splash512.png" Square30x30Logo="images\icons\hdpi.png">
-        <m2:DefaultTile Square70x70Logo="images\icons\hdpi.png" Square310x310Logo="images\icons\splash512.png" Wide310x150Logo="images\icons\store310X150.png">
+      <m2:VisualElements DisplayName="World Survey Kit" Description="WorldSurveyKitMetro" ForegroundText="light" BackgroundColor="#464646" Square150x150Logo="images\icons\store150x150.png" Square30x30Logo="images\icons\store30x30.png">
+        <m2:DefaultTile ShortName="World Survey Kit">
         </m2:DefaultTile>
         <m2:SplashScreen Image="images\icons\store620X300.png" />
       </m2:VisualElements>
