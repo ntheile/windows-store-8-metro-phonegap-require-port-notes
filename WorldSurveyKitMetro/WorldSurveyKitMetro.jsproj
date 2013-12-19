@@ -347,7 +347,6 @@
     <Content Include="js\libs\shims\shims\jpicker\images\picker.gif" />
     <Content Include="js\libs\shims\shims\jpicker\images\preview-opacity.png" />
     <Content Include="js\libs\shims\shims\jpicker\images\rangearrows.gif" />
-    <Content Include="js\libs\shims\shims\jpicker\images\Thumbs.db" />
     <Content Include="js\libs\shims\shims\jpicker\jpicker.css" />
     <Content Include="js\libs\shims\shims\jpicker\ReadMe.txt" />
     <Content Include="js\libs\shims\shims\json-storage.js" />

@@ -513,7 +513,7 @@ define(["jquery", "backbone", "models/Models", "collections/MyOrgsCollection"], 
 
                 // azure mobile services stuff
                 App.mobileService.logout();
-                App.authView.fbConnected();
+                App.authView.fbDisconnected();
 
             }
 
