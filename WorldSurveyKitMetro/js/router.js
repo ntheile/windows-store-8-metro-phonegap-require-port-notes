@@ -1096,7 +1096,9 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
             // show dom ele
             $.mobile.changePage("#build", { reverse: false, changeHash: false });
             $.mobile.loading("show");
+            $("#build").trigger("create");
 
+          
             // set the orgId for the global variable used by the collection 
             // for GET /api/OrgUserMapping/<App.tempOrgId> as well as the 
             // /#build, /#report and /#settings pages
@@ -1107,7 +1109,7 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
             //var t = _.template(AdminMenuTemplate, { orgId: App.orgId, buildSelected: " data-theme='c' data-icon='false' " });
             var t = _.template(NavBarTemplate, { orgId: App.orgId, buildSelected: "ui-btn-active" });
             $("[data-role='admin-menu']").html(t);
-            $("#build").trigger("create");
+            //$("#build").trigger("create");
 
             // clear the file collection
             $("#fileList").html("");
@@ -1172,12 +1174,15 @@ define(["jquery", "backbone", "text!templates/MenuTemplate.html", "collections/M
                 catch (e) { }
 
 
+
             }, function () {
                 //error
                 $.mobile.loading("hide");
                 //console.log("Error fetching files on init");
             });
 
+
+           
            
 
         },

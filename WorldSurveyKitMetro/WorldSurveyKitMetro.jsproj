@@ -421,6 +421,7 @@
     <Content Include="js\views\UserItemView.js" />
     <Content Include="js\views\UserManagerView.js" />
     <Content Include="js\views\UserRowView.js" />
+    <Content Include="privacy.html" />
     <None Include="WorldSurveyKitMetro_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="packages.config" />

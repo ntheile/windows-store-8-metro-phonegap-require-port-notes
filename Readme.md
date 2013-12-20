@@ -134,6 +134,8 @@ foreach($file in $files) { $content = Get-Content $file.FullName; $content | Out
 
 ```
 
+4. To pass the human test I had to provide a test account for the test to log in as. 
+I use facebook authenication so I was able to create a test user account through the facebook app developer portal and provided it in the "Notes to Tester” section of App certification.
 
 
 

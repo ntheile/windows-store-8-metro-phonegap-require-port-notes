@@ -33,5 +33,16 @@
         // args.setPromise().
     };
 
+   
+    WinJS.Application.onsettings = function (e) {
+        e.detail.e.request.applicationCommands.append(new Windows.UI.ApplicationSettings.SettingsCommand('Privacy policy', 'Privacy policy', function () {
+            Windows.System.Launcher.launchUriAsync(new Windows.Foundation.Uri('https://worldsurveykit.com/privacy.html'));
+        }));
+    };
+
     app.start();
+
+
+
+
 })();

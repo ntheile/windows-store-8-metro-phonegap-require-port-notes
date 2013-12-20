@@ -70,7 +70,7 @@ define(["jquery", "backbone", "models/Models", "text!templates/GoGpsTemplate.htm
                     self.renderGps(position.coords.latitude, position.coords.longitude, $("#goGpsDesc").val());
                 },
                 function (error) {
-                    alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+                    //alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
                 }
             );
 

@@ -34,6 +34,8 @@ define(["jquery", "backbone", "models/Models"],
 
                 //console.log("====> FileBuilderCompositeView - render()");
 
+               
+
                 $('#fileList').append("<li data-icon='edit'>" +
                       "<a id='newSurvey" + model.get("id") + "' " +
                          "href='#file?" + model.get("id") +"'>" + model.get("fileName") +
@@ -41,6 +43,8 @@ define(["jquery", "backbone", "models/Models"],
                    "</li>");
 
                 $('#fileList').listview("refresh");
+
+                $("#build").trigger("create");
 
                 return this;
 
