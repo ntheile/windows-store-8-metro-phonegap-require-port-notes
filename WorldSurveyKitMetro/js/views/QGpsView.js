@@ -1,4 +1,4 @@
-// QGpsView
+﻿// QGpsView
 // ===============
 
 define(["jquery", "backbone", "models/Models", "text!templates/QGpsTemplate.html"],

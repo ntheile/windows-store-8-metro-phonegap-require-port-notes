@@ -1,4 +1,4 @@
-// Home Composite  View
+﻿// Home Composite  View
 // ==========================
 
 define(["jquery", "backbone", "models/Models"],

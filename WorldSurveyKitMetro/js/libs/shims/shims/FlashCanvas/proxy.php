@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Proxy script to load a file from other domain

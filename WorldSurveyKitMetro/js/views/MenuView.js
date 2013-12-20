@@ -1,4 +1,4 @@
-// Menu View
+﻿// Menu View
 // =============
 
 define(["models/MenuModel", "text!templates/MenuTemplate.html", "collections/MenuCollection"], function (MenuModel, MenuTemplate, MenuCollection) {

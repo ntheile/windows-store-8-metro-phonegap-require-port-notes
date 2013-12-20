@@ -1,4 +1,4 @@
-// Auth View - used to get facebook credentials then pass token back to the server to authorize access
+﻿// Auth View - used to get facebook credentials then pass token back to the server to authorize access
 // ===================================================================================================
 
 define(["jquery", "backbone", "models/Models", "collections/MyOrgsCollection"], function ($, Backbone, Models, MyOrgsCollection) {

@@ -1,4 +1,4 @@
-// QOptionAnswerView
+﻿// QOptionAnswerView
 // ===================
 
 define(["jquery", "backbone", "models/Models", "text!templates/QOptionAnswerTemplate.html", "collections/OptionCollection"],

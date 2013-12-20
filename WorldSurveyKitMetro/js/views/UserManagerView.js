@@ -1,4 +1,4 @@
-// User Manager View 
+﻿// User Manager View 
 // ====================
 
 define(["jquery", "backbone", "models/Models", "text!templates/UserManagerTemplate.html", "collections/UserManagerCollection", "views/UserRowView"],

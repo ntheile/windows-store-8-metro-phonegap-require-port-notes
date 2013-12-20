@@ -1,4 +1,4 @@
-// GoOptionsView View
+﻿// GoOptionsView View
 // ===============
 
 ///

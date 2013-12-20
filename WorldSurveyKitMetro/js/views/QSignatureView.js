@@ -1,4 +1,4 @@
-// QSignatureView
+﻿// QSignatureView
 // ===============
 
 define(["jquery", "backbone", "models/Models", "text!templates/QSignatureTemplate.html"],

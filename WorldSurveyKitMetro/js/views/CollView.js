@@ -1,4 +1,4 @@
-// Coll (Collection localStorage) View
+﻿// Coll (Collection localStorage) View
 // ===================================
 
 // Includes file dependencies

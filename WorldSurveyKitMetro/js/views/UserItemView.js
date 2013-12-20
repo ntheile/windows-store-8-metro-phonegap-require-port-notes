@@ -1,4 +1,4 @@
-// User Item View
+﻿// User Item View
 // =============
 
 define(["jquery", "backbone", "models/Models", "text!templates/UserOrgItemTemplate.html", "text!templates/UserEditPopupTemplate.html"],

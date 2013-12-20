@@ -277,9 +277,6 @@
     <Content Include="js\libs\shims\shims\combos\22.js" />
     <Content Include="js\libs\shims\shims\combos\23.js" />
     <Content Include="js\libs\shims\shims\combos\24.js" />
-    <Content Include="js\libs\shims\shims\combos\25.js" />
-    <Content Include="js\libs\shims\shims\combos\26.js" />
-    <Content Include="js\libs\shims\shims\combos\27.js" />
     <Content Include="js\libs\shims\shims\combos\28.js" />
     <Content Include="js\libs\shims\shims\combos\29.js" />
     <Content Include="js\libs\shims\shims\combos\3.js" />
@@ -295,7 +292,6 @@
     <Content Include="js\libs\shims\shims\dom-extend.js" />
     <Content Include="js\libs\shims\shims\es5.js" />
     <Content Include="js\libs\shims\shims\excanvas.js" />
-    <Content Include="js\libs\shims\shims\filereader.js" />
     <Content Include="js\libs\shims\shims\FlashCanvasPro\canvas2png.js" />
     <Content Include="js\libs\shims\shims\FlashCanvasPro\flash10canvas.swf" />
     <Content Include="js\libs\shims\shims\FlashCanvasPro\flash9canvas.swf" />

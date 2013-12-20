@@ -1,4 +1,4 @@
-// QOpenEnded View
+﻿// QOpenEnded View
 // ===============
 
 define(["jquery", "backbone", "models/Models", "text!templates/QOpenEndedTemplate.html"],

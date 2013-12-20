@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /**
  * Save the input as a PNG file

@@ -1,4 +1,4 @@
-//  Router - this is where #hash based routing occurs
+﻿//  Router - this is where #hash based routing occurs
 // =======================================================
 
 // Includes file dependencies

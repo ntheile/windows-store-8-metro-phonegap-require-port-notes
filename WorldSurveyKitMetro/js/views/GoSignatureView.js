@@ -1,4 +1,4 @@
-// Go Signature View
+﻿// Go Signature View
 // =================
 
 define(["jquery", "backbone", "models/Models", "text!templates/GoSignatureTemplate.html"],

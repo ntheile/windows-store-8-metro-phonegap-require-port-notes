@@ -1,4 +1,4 @@
-/// <reference path="../libs/jquery-1.8.3.js" />
+﻿/// <reference path="../libs/jquery-1.8.3.js" />
 /// <reference path="../libs/backbone-0.9.2.js" />
 /// <reference path="../libs/backbone.offline.js" />
 

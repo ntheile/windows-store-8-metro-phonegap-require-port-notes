@@ -1,4 +1,4 @@
-// Q Camera View
+﻿// Q Camera View
 // ===============
 
 define(["jquery", "backbone", "models/Models", "text!templates/QCameraTemplate.html"],

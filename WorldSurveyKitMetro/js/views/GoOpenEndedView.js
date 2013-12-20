@@ -1,4 +1,4 @@
-// GoOpenEnded View
+﻿// GoOpenEnded View
 // ===============
 
 ///

@@ -1,4 +1,4 @@
-// Platform: android
+﻿// Platform: android
 
 // commit f50d20a87431c79a54572263729461883f611a53
 
@@ -4667,9 +4667,9 @@ console.useLogger = function (value) {
 
 //------------------------------------------------------------------------------
 //console.log = function() {
-    if (logger.useConsole()) return;
-    logger.log.apply(logger, [].slice.call(arguments));
-};
+//    if (logger.useConsole()) return;
+ //   logger.log.apply(logger, [].slice.call(arguments));
+//};
 
 //------------------------------------------------------------------------------
 console.error = function() {
@@ -5718,9 +5718,9 @@ logger.useConsole = function (value) {
             throw new Error("global console object is not defined");
         }
 
-        if (typeof //console.log != "function") {
-            throw new Error("global console object does not have a log function");
-        }
+        //if (typeof //console.log != "function") {
+          //  throw new Error("global console object does not have a log function");
+       // }
 
         if (typeof console.useLogger == "function") {
             if (console.useLogger()) {
@@ -6303,9 +6303,9 @@ utils.extend = (function() {
 utils.alert = function(msg) {
     if (window.alert) {
         window.alert(msg);
-    } else if (console && //console.log) {
+    } //else if (console && //console.log) {
         //console.log(msg);
-    }
+    //}
 };
 
 /**

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * FlashCanvas
  *
  * Copyright (c) 2009      Tim Cameron Ryan

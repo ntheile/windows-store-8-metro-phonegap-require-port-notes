@@ -1,4 +1,4 @@
-// User Row View 
+﻿// User Row View 
 // ====================
 
 define(["jquery", "backbone", "models/Models", "text!templates/UserRowTemplate.html"],

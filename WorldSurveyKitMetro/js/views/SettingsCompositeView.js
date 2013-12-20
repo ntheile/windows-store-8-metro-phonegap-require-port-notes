@@ -1,4 +1,4 @@
-// Settings Composite  View
+﻿// Settings Composite  View
 // ==========================
 
 define(["jquery", "backbone", "models/Models", "collections/UFileCollection"],

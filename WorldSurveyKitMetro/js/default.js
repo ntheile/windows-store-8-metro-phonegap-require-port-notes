@@ -3,6 +3,8 @@
 (function () {
     "use strict";
 
+    WinJS.Binding.optimizeBindingReferences = true;
+
     var app = WinJS.Application;
     var activation = Windows.ApplicationModel.Activation;
     
@@ -12,9 +14,11 @@
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
                 // TODO: This application has been newly launched. Initialize
                 // your application here.
+                require(["main"]);
             } else {
                 // TODO: This application has been reactivated from suspension.
                 // Restore application state here.
+                require(["main"]);
             }
             args.setPromise(WinJS.UI.processAll());
         }

@@ -1,4 +1,4 @@
-// User Composite  View
+﻿// User Composite  View
 // ==========================
 
 define(["jquery", "backbone", "models/Models", "views/UserItemView", "tdfriendselector"],

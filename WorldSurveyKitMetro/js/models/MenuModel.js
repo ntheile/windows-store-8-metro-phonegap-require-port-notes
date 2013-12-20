@@ -1,4 +1,4 @@
-// Menu Model
+﻿// Menu Model
 // ==============
 
 // Includes file dependencies

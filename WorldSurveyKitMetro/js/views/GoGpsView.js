@@ -1,4 +1,4 @@
-// GoGpsView
+﻿// GoGpsView
 // ===============
 
 define(["jquery", "backbone", "models/Models", "text!templates/GoGpsTemplate.html"],
