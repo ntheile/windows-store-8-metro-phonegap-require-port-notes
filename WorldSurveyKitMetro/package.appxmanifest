@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="45540NickTheile.WorldSurveyKit" Version="1.1.0.18" Publisher="CN=79902CF8-1BB0-4FB7-AC85-CC380B2CEFF3" />
+  <Identity Name="45540NickTheile.WorldSurveyKit" Version="1.1.0.19" Publisher="CN=79902CF8-1BB0-4FB7-AC85-CC380B2CEFF3" />
   <Properties>
     <DisplayName>World Survey Kit</DisplayName>
     <PublisherDisplayName>Nick Theile</PublisherDisplayName>

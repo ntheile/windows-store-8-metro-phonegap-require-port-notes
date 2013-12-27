@@ -1,38 +1,19 @@
-World Survey Kit - For Windows 8 
-================================
-I had to change a number of things in my code for my PhoneGap build app to work in a Windows Store environment. Unfortunatley it does not just work out of the box (come on msft :( ).
-Below are some of the issues I ran into:
+How I converted my jQuery, PhoneGap, RequireJS app to a Windows 8 Store App (The pain, struggle and glory)
+=========================================================================================================
+I had to change a number of things in my World Survey Kit application code for it to work in a Windows Store environment. Unfortunatley it does not just work out of the box...come on m$ft :( 
+Below are some of the issues I ran into: 
 
-1. jQuery - special version (jquery-1.8.0-windows8-ready.js)
-2. iFrames
-3. Facebook Authenication with the FB Javascript SDK
-
-
-To make Facebook Authentication work in a PhoneGap Windows 8 Store app
-------------------------------------------------------------------------
-
-* Create Azure Mobile Service http://code.msdn.microsoft.com/windowsapps/Authenticate-Account-827dd37b
-* Change the logic code in Auth.js to first authenicate with mobile services then pass the token back to the client:
-
-```javascript
-	
-	// set up mobile services
-    App.mobileService = new WindowsAzure.MobileServiceClient(
-		"https://wskauth.azure-mobile.net",
-        "XEsEVgcJInlpsRqIkHHRgtBwVubnLc42"
-    );
-
-    App.mobileService.login("facebook").then(function () {
-		App.authView.fbConnected();
-    });
-	
-```
+1. jQuery - special version needed (jquery-1.8.0-windows8-ready.js)
+2. Facebook Authenication with the FB Javascript SDK issues
+3. Windows App Cerification Kit issues (wack) ... this part is wack yo!
+4. iFrame issues
 
 
-Other things I had to modify
-----------------------------
+jQuery for Windows 8
+--------------------
+I had to get a special version of jquery for windows 8 here: https://github.com/appendto/jquery-win8
 
-* When in doubt and you get a javascript exception while debuggin try wrapping your code in this call:
+* When in doubt and you get a javascript exception while debugging try wrapping your code in this call:
 ```javascript
 	MSApp.execUnsafeLocalFunction(function () {
 		// your code
@@ -43,17 +24,14 @@ Other things I had to modify
 
 * Changed getting data from facebook by passing in the access token and avoided using the fb js sdk. Changed FB.api(/me) code to:
 ```javascript
-
 	$.get('https://graph.facebook.com/' + fid + "?access_token=" + YOUR_TOKEN, function (r) {
 		name = "<br/>" + r.name;
 		$("#activityFeed").append(toStaticHTML(name));
 	});
-
 ```
 
 * I had to wrap line 3061 of `jquery-1.8.0-windows8-ready.js` in a try-catch to avoid an error.
 ```javascript
-	
 	// nick added try-catch... for some reason an error was being thrown 0x800a01b6 
 	//  - JavaScript runtime error: Object doesn't support property or method 'apply'
 	try{
@@ -63,32 +41,48 @@ Other things I had to modify
 	catch (e) {
 		ret = undefined;
 	}
-
 ```
 
-* I had to remove all the iframes in the application. I read there is a workaround online, but did not bother to implement, I simply removed the youtube iframes.
-* I also removed google analytics and google translate.
 
-* Removed the export to csv functionality since it has to do a full page post back to a web page on a different domain, there is a possible workaround I did not 
-investigate yet.
+To make Facebook Authentication work in a PhoneGap Windows 8 Store app
+------------------------------------------------------------------------
+I had to abandon the Facebook JS SDK for login and instead use Azure Mobile Services to do the autehnication because I could not get the Facebook popup iframe to work.
+
+* Create Azure Mobile Service http://code.msdn.microsoft.com/windowsapps/Authenticate-Account-827dd37b
+* Change the logic code in Auth.js to first authenicate with mobile services then pass the token back to the client:
+
+```javascript
+	
+	// set up mobile services
+    App.mobileService = new WindowsAzure.MobileServiceClient(
+		"https://wskauth.azure-mobile.net",
+        "ENTER_YOUR_CODE"
+    );
+
+    App.mobileService.login("facebook").then(function () {
+		App.authView.fbConnected();
+    });
+	
+```
 
 
 To Pass the Windows App Certification
 --------------------------------------
-1. I had to convert a bunch of files to UTF-8. To automate this is wrote a powershell command.
+* I had to convert a bunch of files to UTF-8. To automate this is wrote a powershell command.
 
-$files = Get-ChildItem 'D:\website\WorldSurveyKitMetro\WorldSurveyKitMetro\js' -Recurse | ? {Test-Path $_.FullName -PathType Leaf} 
-foreach($file in $files) { $content = Get-Content $file.FullName; $content | Out-File $file.FullName -Encoding utf8 }
+```powershell
+	$files = Get-ChildItem 'D:\website\WorldSurveyKitMetro\WorldSurveyKitMetro\js' -Recurse | ? {Test-Path $_.FullName -PathType Leaf} 
+	foreach($file in $files) { $content = Get-Content $file.FullName; $content | Out-File $file.FullName -Encoding utf8 }
+	
+	$files = Get-ChildItem 'D:\website\WorldSurveyKitMetro\WorldSurveyKitMetro\index.html' -Recurse | ? {Test-Path $_.FullName -PathType Leaf} 
+	foreach($file in $files) { $content = Get-Content $file.FullName; $content | Out-File $file.FullName -Encoding utf8 }
+	
+	$files = Get-ChildItem 'D:\website\WorldSurveyKitMetro\WorldSurveyKitMetro\Content\themes\base' -Recurse | ? {Test-Path $_.FullName -PathType Leaf} 
+	foreach($file in $files) { $content = Get-Content $file.FullName; $content | Out-File $file.FullName -Encoding utf8 }
+```
+* Run js lint on your javascript files and fix any errors. Most of my errors were missing semi-colons.
+* To pass the " Performace Launch Test "  I had to add a few lines of code to the Default.js file to open up a requirejs module after suspend or launch:
 
-$files = Get-ChildItem 'D:\website\WorldSurveyKitMetro\WorldSurveyKitMetro\index.html' -Recurse | ? {Test-Path $_.FullName -PathType Leaf} 
-foreach($file in $files) { $content = Get-Content $file.FullName; $content | Out-File $file.FullName -Encoding utf8 }
-
-$files = Get-ChildItem 'D:\website\WorldSurveyKitMetro\WorldSurveyKitMetro\Content\themes\base' -Recurse | ? {Test-Path $_.FullName -PathType Leaf} 
-foreach($file in $files) { $content = Get-Content $file.FullName; $content | Out-File $file.FullName -Encoding utf8 }
-
-2. Run js lint on your javascript files and fix any errors. Most of my errors were missing semi-colons.
-
-3. To pass the " Performace Launch Test "  I had to add a few lines of code to the Default.js file to open up a requirejs module after suspend or launch:
 
 `default.js`
 
@@ -128,19 +122,36 @@ foreach($file in $files) { $content = Get-Content $file.FullName; $content | Out
         // args.setPromise().
     };
 
+
+    // privacy policy charm
+    WinJS.Application.onsettings = function (e) {
+        e.detail.e.request.applicationCommands.append(new Windows.UI.ApplicationSettings.SettingsCommand('Privacy policy', 'Privacy policy', function () {
+            Windows.System.Launcher.launchUriAsync(new Windows.Foundation.Uri('https://worldsurveykit.com/privacy.html'));
+        }));
+    };
+
     app.start();
-})();
-
-
+	})();
 ```
-
-4. To pass the human test I had to provide a test account for the test to log in as. 
+* To pass the human test I had to provide a test account for the test to log in as. 
 I use facebook authenication so I was able to create a test user account through the facebook app developer portal and provided it in the "Notes to Tester” section of App certification.
+* I thought I could pass the certification without a privacy policy... but apparently not. Make sure you you add a charm to your app and a link to a privacy policy (I simply used one I found online... check it out here worldsurveykit.com/privacy.html). The code to add is above under `privacy policy charm'
+* Now your app should pass the tedious certification process!
+
+
+
+iframe issue
+----------------------------
+* I had to remove all the iframes in the application. I read there is a workaround online, but did not bother to implement, I simply removed the youtube iframes.
+* I also removed google analytics and google translate.
+* Removed the export to csv functionality since it has to do a full page post back to a web page on a different domain, there is a possible workaround I did not 
+investigate yet.
+
 
 
 
 TODO
 -----
-Add logic to persist the login token, but also check if it has expired
-Issues w import and export (hid the buttons for now)
-
+* Add logic to persist the login token, but also check if it has expired
+* Issues with import and export (hid the buttons for now)
+* iFrame workaround
